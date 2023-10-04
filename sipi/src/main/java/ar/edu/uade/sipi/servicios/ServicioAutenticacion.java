@@ -1,7 +1,7 @@
 package ar.edu.uade.sipi.servicios;
 
-import ar.edu.uade.sipi.modelo.repositorios.IRepositorioUsuario;
 import ar.edu.uade.sipi.modelo.entidades.Usuario;
+import ar.edu.uade.sipi.modelo.repositorios.IRepositorioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,7 +27,7 @@ public class ServicioAutenticacion extends ServicioGenerico<Usuario, Long> imple
                         entity.getContraseña()
                 )
         );
-        entity.setId(servicioSecuenciador.secuenciar(Usuario.nombreSecuencia));
+        entity.setId(servicioSecuenciador.secuenciar(Usuario.NOMBRE_SECUENCIA));
         return super.save(entity);
     }
 

@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "usuarios")
 public class Usuario {
     @Transient
-    public static final String nombreSecuencia = "secuencia_usuarios";
+    public static final String NOMBRE_SECUENCIA = "secuencia_usuarios";
     @Id
     private Long id;
     @Indexed(unique = true)

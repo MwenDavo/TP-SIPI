@@ -3,7 +3,6 @@ package ar.edu.uade.sipi.servicios;
 import ar.edu.uade.sipi.modelo.repositorios.IRepositorioSecuencia;
 import ar.edu.uade.sipi.modelo.util.SecuenciaGuardado;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 

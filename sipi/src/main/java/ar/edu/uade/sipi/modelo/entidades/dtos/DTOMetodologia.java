@@ -1,7 +1,5 @@
 package ar.edu.uade.sipi.modelo.entidades.dtos;
 
-import ar.edu.uade.sipi.modelo.entidades.Reseña;
-
 import java.util.List;
 
 public class DTOMetodologia {

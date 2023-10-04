@@ -1,7 +1,5 @@
 package ar.edu.uade.sipi.modelo.entidades.dtos;
 
-import ar.edu.uade.sipi.modelo.entidades.Usuario;
-
 public class DTOReseña {
     private int puntuacion;
     private DTOUsuario usuario;
