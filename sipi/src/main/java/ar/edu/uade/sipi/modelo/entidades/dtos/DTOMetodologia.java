@@ -5,11 +5,13 @@ import ar.edu.uade.sipi.modelo.entidades.Reseña;
 import java.util.List;
 
 public class DTOMetodologia {
+    private String nombre;
     private String contenido;
     private List<DTOReseña> reseñas;
     private int puntuacionTotal;
 
-    public DTOMetodologia(String contenido, List<DTOReseña> reseñas, int puntuacionTotal) {
+    public DTOMetodologia(String nombre, String contenido, List<DTOReseña> reseñas, int puntuacionTotal) {
+        this.nombre = nombre;
         this.contenido = contenido;
         this.reseñas = reseñas;
         this.puntuacionTotal = puntuacionTotal;

@@ -2,14 +2,28 @@ package ar.edu.uade.sipi.modelo.entidades;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "metodologias")
 public class Metodologia {
-    private long id;
+    @Transient
+    public static final String secuencia = "secuencia_metodologias";
+    @Id
+    private Long id;
+    @Indexed(unique = true)
+    private String nombre;
     private String contenido;
     private List<Reseña> reseñas;
     private int puntuacionTotal;
 
-    public Metodologia(long id, String contenido, List<Reseña> reseñas, int puntuacionTotal) {
-        this.id = id;
+    public Metodologia() {
+    }
+
+    public Metodologia(String nombre, String contenido, List<Reseña> reseñas, int puntuacionTotal) {
+        this.nombre = nombre;
         this.contenido = contenido;
         this.reseñas = reseñas;
         this.puntuacionTotal = puntuacionTotal;
@@ -21,6 +35,14 @@ public class Metodologia {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getContenido() {

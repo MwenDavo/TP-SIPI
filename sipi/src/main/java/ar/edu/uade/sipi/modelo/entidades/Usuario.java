@@ -1,25 +1,34 @@
 package ar.edu.uade.sipi.modelo.entidades;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "usuarios")
 public class Usuario {
-    private long id;
+    @Transient
+    public static final String nombreSecuencia = "secuencia_usuarios";
+    @Id
+    private Long id;
+    @Indexed(unique = true)
     private String nombreUsuario;
     private String contraseña;
-    private String email;
     private String metodologiaRecomendada;
 
-    public Usuario(long id, String nombreUsuario, String contraseña, String email, String metodologiaRecomendada) {
-        this.id = id;
-        this.nombreUsuario = nombreUsuario;
-        this.contraseña = contraseña;
-        this.email = email;
-        this.metodologiaRecomendada = metodologiaRecomendada;
+    public Usuario() {
     }
 
-    public long getId() {
+    public Usuario(String nombreUsuario, String contraseña) {
+        this.nombreUsuario = nombreUsuario;
+        this.contraseña = contraseña;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,14 +46,6 @@ public class Usuario {
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getMetodologiaRecomendada() {

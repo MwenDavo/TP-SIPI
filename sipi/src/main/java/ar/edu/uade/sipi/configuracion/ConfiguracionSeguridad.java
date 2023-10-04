@@ -1,6 +1,5 @@
 package ar.edu.uade.sipi.configuracion;
 
-import ar.edu.uade.sipi.configuracion.FiltroAutenticacion;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +30,8 @@ public class ConfiguracionSeguridad {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().requestMatchers(
-                "/authentication/login"
+                "/autenticacion/registro",
+                "/autenticacion/inicioSesion"
         );
     }
 

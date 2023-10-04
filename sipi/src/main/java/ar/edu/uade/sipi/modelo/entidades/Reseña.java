@@ -1,13 +1,23 @@
 package ar.edu.uade.sipi.modelo.entidades;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "reseñas")
 public class Reseña {
-    private long id;
+    @Transient
+    public static final String secuencia = "secuencia_reseñas";
+    @Id
+    private Long id;
     private int puntuacion;
     private Usuario usuario;
     private String descripcion;
 
-    public Reseña(long id, int puntuacion, Usuario usuario, String descripcion) {
-        this.id = id;
+    public Reseña() {
+    }
+
+    public Reseña(int puntuacion, Usuario usuario, String descripcion) {
         this.puntuacion = puntuacion;
         this.usuario = usuario;
         this.descripcion = descripcion;
