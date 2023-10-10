@@ -10,7 +10,7 @@ import java.util.List;
 @Document(collection = "metodologias")
 public class Metodologia {
     @Transient
-    public static final String secuencia = "secuencia_metodologias";
+    public static final String NOMBRE_SECUENCIA = "secuencia_metodologias";
     @Id
     private Long id;
     @Indexed(unique = true)

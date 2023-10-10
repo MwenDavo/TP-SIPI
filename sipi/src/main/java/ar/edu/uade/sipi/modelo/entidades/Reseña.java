@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "reseñas")
 public class Reseña {
     @Transient
-    public static final String secuencia = "secuencia_reseñas";
+    public static final String NOMBRE_SECUENCIA = "reseñas";
     @Id
     private Long id;
     private int puntuacion;

@@ -14,6 +14,8 @@ import java.util.List;
 public class ServicioAutenticacion implements IServicioAutenticacion {
     @Autowired
     private IRepositorioUsuario repositorioUsuario;
+    @Autowired
+    private IServicioSecuenciaGuardado secuenciaGuardado;
 
     @Override
     public void registro(Usuario usuario) {
@@ -23,10 +25,10 @@ public class ServicioAutenticacion implements IServicioAutenticacion {
                         usuario.getContraseña()
                 )
         );
-        usuario.setId(1L);
-        List<Usuario> usuarios = new ArrayList<>();
-        usuarios.add(usuario);
-        repositorioUsuario.saveAll(usuarios);
+        usuario.setId(secuenciaGuardado.get(Usuario.NOMBRE_SECUENCIA));
+        List<Usuario> u = new ArrayList<>();
+        u.add(usuario);
+        repositorioUsuario.saveAll(u);
     }
 
     @Override
