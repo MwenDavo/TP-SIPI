@@ -15,7 +15,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/metodologias")
-@CrossOrigin("*")
 public class ControladorMetodologia {
     @Autowired
     private IServicioMetodologia servicioMetodologia;

@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://mfelau:9yAWaQkzspY3JLCX@sip1.pqxjhqb.mongodb.net/?retryWrites=true&w=majority
+      database: study_mentor

@@ -1,8 +1,13 @@
 package ar.edu.uade.sipi.servicios;
 
 import ar.edu.uade.sipi.modelo.entidades.Metodologia;
+import org.springframework.stereotype.Service;
 
-public interface IServicioMetodologia extends IServicioGenerico<Metodologia, Long> {
+import java.util.List;
+
+public interface IServicioMetodologia {
 
     Metodologia getByNombre(String nombre);
+
+    List<Metodologia> getAll();
 }

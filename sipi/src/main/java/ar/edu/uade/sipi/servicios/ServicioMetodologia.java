@@ -6,18 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class ServicioMetodologia extends ServicioGenerico<Metodologia, Long> implements IServicioMetodologia {
+public class ServicioMetodologia implements IServicioMetodologia {
     @Autowired
     private IRepositorioMetodologia repositorioMetodologia;
 
     @Override
-    public CrudRepository<Metodologia, Long> getDao() {
-        return repositorioMetodologia;
+    public Metodologia getByNombre(String nombre) {
+        return null;
     }
 
     @Override
-    public Metodologia getByNombre(String nombre) {
-        return repositorioMetodologia.getByNombre(nombre);
+    public List<Metodologia> getAll() {
+        return null;
     }
 }

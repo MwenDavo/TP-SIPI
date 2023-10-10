@@ -2,7 +2,9 @@ package ar.edu.uade.sipi.servicios;
 
 import ar.edu.uade.sipi.modelo.entidades.Usuario;
 
-public interface IServicioAutenticacion extends IServicioGenerico<Usuario, Long> {
+public interface IServicioAutenticacion {
 
-    Usuario login(String nombreUsuario, String contraseña);
+    void registro(Usuario usuario);
+
+    Usuario inicioSesion(String nombreUsuario, String contraseña);
 }

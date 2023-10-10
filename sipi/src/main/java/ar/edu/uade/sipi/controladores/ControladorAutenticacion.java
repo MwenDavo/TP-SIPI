@@ -15,7 +15,6 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/autenticacion")
-@CrossOrigin("*")
 public class ControladorAutenticacion {
     @Autowired
     private IServicioAutenticacion iServicioAutenticacion;
@@ -26,14 +25,14 @@ public class ControladorAutenticacion {
     @PostMapping("/registro")
     private ResponseEntity<?> register(@RequestBody DTOUsuario dtoUsuario) {
         Usuario usuario = convertToEntity(dtoUsuario);
-        iServicioAutenticacion.save(usuario);
+        iServicioAutenticacion.registro(usuario);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping("/inicioSesion")
     public ResponseEntity<?> login(@RequestBody DTOUsuario dtoUsuario) {
         Usuario usuario = convertToEntity(dtoUsuario);
-        if (iServicioAutenticacion.login(usuario.getNombreUsuario(), usuario.getContraseña()) != null) {
+        if (iServicioAutenticacion.inicioSesion(usuario.getNombreUsuario(), usuario.getContraseña()) != null) {
             String token = Jwts.builder()
                     .setSubject(usuario.getNombreUsuario())
                     .setIssuedAt(new Date())

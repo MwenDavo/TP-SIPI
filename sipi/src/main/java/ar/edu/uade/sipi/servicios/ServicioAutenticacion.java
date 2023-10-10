@@ -7,32 +7,30 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
-public class ServicioAutenticacion extends ServicioGenerico<Usuario, Long> implements IServicioAutenticacion {
+public class ServicioAutenticacion implements IServicioAutenticacion {
     @Autowired
     private IRepositorioUsuario repositorioUsuario;
-    @Autowired
-    private IServicioSecuenciador servicioSecuenciador;
 
     @Override
-    public CrudRepository<Usuario, Long> getDao() {
-        return repositorioUsuario;
-    }
-
-    @Override
-    public Usuario save(Usuario entity) {
+    public void registro(Usuario usuario) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        entity.setContraseña(
+        usuario.setContraseña(
                 passwordEncoder.encode(
-                        entity.getContraseña()
+                        usuario.getContraseña()
                 )
         );
-        entity.setId(servicioSecuenciador.secuenciar(Usuario.NOMBRE_SECUENCIA));
-        return super.save(entity);
+        usuario.setId(1L);
+        List<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(usuario);
+        repositorioUsuario.saveAll(usuarios);
     }
 
     @Override
-    public Usuario login(String nombreUsuario, String contraseña) {
+    public Usuario inicioSesion(String nombreUsuario, String contraseña) {
         Usuario usuario = repositorioUsuario.getByNombreUsuario(nombreUsuario);
         if (usuario != null && checkPassword(contraseña, usuario.getContraseña())) {
             return usuario;
