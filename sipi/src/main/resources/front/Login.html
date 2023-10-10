@@ -86,15 +86,50 @@
             <div class="login-box">
                 <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
                 <h2>Iniciar Sesión o Registrarse</h2>
-                <form action="" method="POST">
+                <form id="loginForm">
                     <input type="text" name="username" placeholder="Nombre de Usuario" required>
                     <input type="password" name="password" placeholder="Contraseña" required>
-                    <button type="submit">Iniciar Sesión</button>
+                    <button type="button" onclick="login()">Iniciar Sesión</button>
                 </form>
                 <p>¿No tienes una cuenta? <a href="Registro.html">Regístrate aquí</a></p>
             </div>
         </div>
     </main>
+    <script>
+        function login() {
+            const username = document.querySelector('input[name="username"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            const url = '/autenticacion/inicioSesion';
+            const data = {
+                nombreUsuario: username,
+                contraseña: password
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    } else {
+                        throw new Error('Error al iniciar sesión');
+                    }
+                })
+                .then(token => {
+                    // Hacer algo con el token, como almacenarlo en localStorage
+                    console.log('Token:', token);
+                })
+                .catch(error => {
+                    console.error('Error:', error.message);
+                });
+        }
+    </script>
 </body>
+
 
 </html>
