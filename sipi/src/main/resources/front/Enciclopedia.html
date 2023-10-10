@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>StudyMentor - Enciclopedia</title>
+
+    <!-- Añadir Font Awesome -->
+    <link rel="icon" type="image/png" href="Fotos/SIP_Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+        body {
+            background-color: #fff;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-image: radial-gradient(hsl(170, 81%, 73%) 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            text-align: center;
+            padding: 2em;
+        }
+
+        .encyclopedia-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .methodology-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 1em;
+            margin: 1em;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .methodology-button:hover {
+            background-color: #297fb8;
+        }
+
+        .methodology-button img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .methodology-content {
+            display: none;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            width: 80%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+        </div>
+    </header>
+    <main>
+        <h2>Enciclopedia</h2>
+        <div class="encyclopedia-container">
+            <button class="methodology-button" onclick="showContent('methodology1')">
+                <img src="Fotos/mapaMental.webp" alt="Mapa Mental">
+                Mapas Mentales
+            </button>
+
+            <button class="methodology-button" onclick="showContent('methodology2')">
+                <img src="Fotos/Pomodoro.jpeg" alt="Metodología 2">
+                Tecnica Pomodoro
+            </button>
+
+            <button class="methodology-button" onclick="showContent('methodology3')">
+                <img src="Fotos/metodo-cornell-para-la-vida.webp" alt="Metodología 3">
+                Metodo Cornell
+            </button>
+
+            <div id="methodology1" class="methodology-content">
+                <h3>Mapas Mentales</h3>
+                <p>Un mapa mental es una representación espontanea de pensamientos que se ramifican a partir de un
+                    concepto central. Hacer uso de ellos fomenta la tormenta de ideas, la toma de notas efectiva y una
+                    retención mayor de los conocimientos. Esto fue demostrado en diversos estudios, que llegaron a la
+                    conclusión de que se debe a el impacto visual que tienen los diagramas.
+                    Los mapas mentales pueden ser simples o elaborados y pueden dibujarse a mano o utilizando una
+                    computadora, además de poder incluir, imágenes, dibujos, múltiples colores, etc.
+                </p>
+                <p>Aqui tenemos un ejemplo de un Mapa Mental:</p>
+                <img src="Fotos/Mapa-mental-ejemplo-la-poesia.webp" alt="" style="height: 350px;width: 350px;">
+                <p style="padding-top: 40px;">Caracteristicas generales de un Mapa Mental:</p>
+                <ul>
+                    <li>El tema principal debe estar ubicado en el centro del diagrama.</li>
+                    <li>Los conceptos relacionados se enlazan alrededor del principal</li>
+                    <li>Cada rama del tema principal se desarrolla independientemente de acuerdo con cada tema</li>
+                </ul>
+
+            </div>
+
+            <div id="methodology2" class="methodology-content">
+                <h3>Tecnica Pomodoro</h3>
+                <p>Se trata de un método de gestión de tiempo que sugiere trabajar en intervalos de 25 minutos, sin
+                    interrupción ni distracciones, y añadir tiempos de descanso de 5 minutos. El objetivo es establecer
+                    metas y mejorar la productividad.
+                    Los intervalos de tiempo se denominan «pomodoros» y una vez cumplidos cuatro de ellos se pueden
+                    hacer pausas prolongadas de entre 15 a 30 minutos, siempre y cuando se hayan completado los primeros
+                    cuatro intervalos de trabajo consecutivos.</p>
+            </div>
+
+            <div id="methodology3" class="methodology-content">
+                <h3>Metodo Cornell</h3>
+                <p>Este método se basa en dividir una misma hoja de apuntes (idealmente de tamaño A4) en cuatro
+                    apartados diferenciados para poder condensar todo el temario y estudiar de forma productiva.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showContent(methodologyId) {
+            // Oculta todos los contenidos
+            var contents = document.getElementsByClassName("methodology-content");
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].style.display = "none";
+            }
+
+            // Muestra el contenido seleccionado
+            var selectedContent = document.getElementById(methodologyId);
+            if (selectedContent) {
+                selectedContent.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

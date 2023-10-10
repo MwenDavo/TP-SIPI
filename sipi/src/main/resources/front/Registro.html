@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>StudyMentor - Registro</title>
+
+    <!-- Añadir Font Awesome -->
+    <link rel="icon" type="image/png" href="Fotos/SIP_Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+        body {
+            background-color: #fff;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-image: radial-gradient(hsl(170, 81%, 73%) 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            text-align: center;
+            padding: 2em;
+        }
+
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            width: 300px;
+        }
+
+        .register-box img {
+            margin-bottom: 1em;
+        }
+
+        .register-box input {
+            width: 100%;
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .register-box button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-box button:hover {
+            background-color: #297fb8;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+        </div>
+    </header>
+    <main>
+        <div class="register-container">
+            <div class="register-box">
+                <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+                <h2>Registro de Usuario</h2>
+                <form action="" method="POST">
+                    <input type="text" name="fullname" placeholder="Nombre Completo" required>
+                    <input type="email" name="email" placeholder="Correo Electrónico" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="tel" name="phone" placeholder="Teléfono (opcional)">
+                    <button type="submit">Registrarse</button>
+                </form>
+                <p>¿Ya tienes una cuenta? <a href="Login.html">Inicia Sesión aquí</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
