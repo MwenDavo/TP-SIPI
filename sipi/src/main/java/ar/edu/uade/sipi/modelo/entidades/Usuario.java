@@ -16,12 +16,28 @@ public class Usuario {
     private String contraseña;
     private String metodologiaRecomendada;
 
+    @Indexed(unique = true)
+    private String correoElectronico;
+
     public Usuario() {
     }
 
-    public Usuario(String nombreUsuario, String contraseña) {
+    public Usuario(String nombreUsuario, String contraseña, String correoElectronico) {
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
+        this.correoElectronico = correoElectronico;
+    }
+
+    public Usuario(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
     public Long getId() {

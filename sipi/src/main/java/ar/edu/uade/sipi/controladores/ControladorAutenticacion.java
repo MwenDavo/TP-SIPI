@@ -47,7 +47,8 @@ public class ControladorAutenticacion {
     private Usuario convertToEntity(DTOUsuario dtoUsuario) {
         return new Usuario(
                 dtoUsuario.getNombreUsuario(),
-                dtoUsuario.getContraseña()
+                dtoUsuario.getContraseña(),
+                dtoUsuario.getCorreoElectronico()
         );
     }
 }
