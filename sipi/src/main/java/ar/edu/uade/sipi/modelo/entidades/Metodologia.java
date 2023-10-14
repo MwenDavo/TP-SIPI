@@ -19,14 +19,22 @@ public class Metodologia {
     private List<Reseña> reseñas;
     private int puntuacionTotal;
 
+    private int[] valoresMetodo;
+
     public Metodologia() {
     }
 
-    public Metodologia(String nombre, String contenido, List<Reseña> reseñas, int puntuacionTotal) {
+    public Metodologia (String nombre, int[] valoresMetodo){
+        this.nombre = nombre;
+        this.valoresMetodo = valoresMetodo;
+    }
+
+    public Metodologia(String nombre, String contenido, List<Reseña> reseñas, int puntuacionTotal, int[] valoresMetodo) {
         this.nombre = nombre;
         this.contenido = contenido;
         this.reseñas = reseñas;
         this.puntuacionTotal = puntuacionTotal;
+        this.valoresMetodo = valoresMetodo;
     }
 
     public long getId() {
@@ -67,5 +75,13 @@ public class Metodologia {
 
     public void setPuntuacionTotal(int puntuacionTotal) {
         this.puntuacionTotal = puntuacionTotal;
+    }
+
+    public int[] getValoresMetodo() {
+        return valoresMetodo;
+    }
+
+    public void setValoresMetodo(int[] valoresMetodo) {
+        this.valoresMetodo = valoresMetodo;
     }
 }
