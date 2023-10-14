@@ -21,9 +21,6 @@
             background-image: radial-gradient(hsl(170, 81%, 73%) 2px,
                     transparent 2px);
             background-size: 40px 40px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         header {
@@ -91,7 +88,6 @@
             padding: 1em;
             bottom: 0;
             width: 100%;
-            margin-top: auto;
         }
 
         #left {
@@ -124,20 +120,13 @@
 
         @media screen and (max-width: 2048px) {
             .cta {
-                font-size: 30px;
+                font-size: 37px;
             }
         }
 
         @media screen and (max-width: 2047px) {
             .cta {
-                font-size: 28px;
-            }
-
-            body {
-                overflow-x: hidden;
-                /* Ocultar desplazamiento horizontal */
-                overflow-y: hidden;
-                /* Ocultar desplazamiento vertical */
+                font-size: 30px;
             }
         }
 
@@ -149,18 +138,12 @@
             #botonesSvg {
                 padding-top: 40px;
             }
-
-            body {
-                overflow: auto;
-            }
-
         }
 
         @media screen and (max-width: 1350px) {
             nav {
                 flex-direction: column;
             }
-
         }
 
         @media screen and (max-width: 1140px) {
@@ -175,7 +158,6 @@
             .wrapper {
                 padding-top: 20px;
             }
-
         }
 
         @media screen and (max-width: 1024px) {
@@ -357,14 +339,298 @@
             display: flex;
             margin-left: 600px;
         }
+
+        .app-settings-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .app-settings-section {
+            margin-bottom: 24px;
+        }
+
+        .app-settings-section h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .app-settings-item {
+            margin-bottom: 16px;
+        }
+
+        .app-settings-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .app-settings-item select,
+        .app-settings-item button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .app-settings-item button {
+            background-color: #f44336;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .app-settings-item button:hover {
+            background-color: #d32f2f;
+        }
+
+        .page-title {
+            margin-bottom: 20px;
+            font-size: 30px;
+            font-weight: normal;
+        }
+
+        .settings-page {
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            min-height: 90vh;
+
+            .settings-container {
+                width: 100%;
+                max-width: 850px;
+                margin: auto;
+                padding: 20px;
+                padding-top: 40px;
+
+                .settings-title {
+                    color: #454545;
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    font-size: 20px;
+                }
+
+                .settings-section {
+                    width: 100%;
+                    border-top: 2px solid #454545;
+                    padding-top: 10px;
+                    margin-bottom: 20px;
+
+                    .my-form {
+                        max-width: 400px;
+                        width: 100%;
+                        margin: 30px auto;
+
+                        .form-submit.right {
+                            justify-content: flex-end;
+                        }
+
+                        .form-submit {
+                            display: flex;
+
+                            .btn {
+                                width: 50%;
+                            }
+                        }
+
+                        .form-group.editable .input-group {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 0.5rem;
+
+                            .form-control {
+                                margin-bottom: 0;
+                            }
+
+                            .btn {
+                                height: 38px;
+                                margin: 0 10px;
+                                background-color: #E59500;
+                                transition: all .5s;
+
+                                &:hover {
+                                    color: #E59500;
+                                    background-color: #E5DADA;
+                                }
+                            }
+
+                            i {
+                                cursor: pointer;
+                                color: #454545;
+                                transition: all .5s;
+
+                                &:hover {
+                                    color: #E59500;
+                                }
+                            }
+                        }
+                    }
+
+                    .non-active-form {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: 0.5rem;
+
+                        p {
+                            padding: 7px 15px;
+                            margin-bottom: 0;
+                            font-size: 1rem;
+                            cursor: default;
+                        }
+
+                        i {
+                            cursor: pointer;
+                            color: #454545;
+                            transition: all .5s;
+                            margin-right: 10px;
+
+                            &:hover {
+                                color: #E59500;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .img-upload-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1em;
+
+            label {
+                margin-bottom: 20px;
+                position: relative;
+                border-radius: 0.25rem;
+                height: 80px;
+                min-width: 80px;
+                cursor: pointer;
+                overflow: hidden;
+                background-color: grey;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 20px;
+                background-size: contain;
+            }
+
+            h4 {
+                text-align: left;
+                font-size: 16px;
+                color: grey;
+                cursor: pointer;
+                transition: all .5s;
+
+                &:hover {
+                    color: white;
+                }
+            }
+
+            .img-preview-container {
+                position: absolute;
+                border-radius: 0.25rem;
+                overflow: hidden;
+            }
+
+            .img-preview {
+                background: center center no-repeat;
+                background-size: cover;
+                height: 80px;
+                width: 80px;
+                border-radius: 0.25rem;
+                cursor: pointer;
+            }
+
+            .img-upload {
+                margin-bottom: 0;
+            }
+
+            input {
+                display: none;
+            }
+
+            .alert {
+                margin-top: 10px;
+                position: absolute;
+                bottom: 0px;
+                background-color: transparent;
+                border: 0;
+                color: #E59500;
+            }
+        }
+
+        .my-form {
+            visibility: visible;
+
+            .form-group {
+                .input-group {
+                    border-radius: 0.25rem;
+                    overflow: hidden;
+
+                    input.form-control {
+                        border: none;
+                        padding: 10px 15px;
+                        background-color: #ffffff;
+                        color: #E5DADA;
+                        font-family: 'Fira Sans', sans-serif;
+                    }
+                }
+
+                .alert-input {
+                    color: #E59500;
+                    font-weight: 100;
+                    font-size: 13px;
+                }
+            }
+
+            .form-submit {
+                width: 100%;
+
+                .btn {
+                    width: 100%;
+                    border-radius: 0.25rem;
+                    background-color: grey;
+                    color: #E5DADA;
+                    cursor: default;
+
+                    &:disabled {
+                        opacity: 0.75;
+                    }
+
+                    &:not(:disabled):not(.disabled) {
+                        background-color: #E59500;
+                    }
+                }
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div class="headerTop">
-            <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
-                    height="53,75px"></a>
+            <div id="left">
+                <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
+                        height="53,75px"></a>
+            </div>
             <div id="digital-clock"></div>
         </div>
         <h1>¡Bienvenido a StudyMentor!</h1>
@@ -474,41 +740,79 @@
         </ul>
         </div>
         <div style="padding-top: 40px;">
-            <a id="options" href="Ajustes.html"><i class="fas fa-cog section-icon"></i> Ajustes</a>
+            <a id="profile" href="Perfil.html"><i class="fas fa-user section-icon"></i> Perfil</a>
             <a id="logout" href="Login.html"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
         </div>
     </nav>
     </div>
-    <section style="padding-left: 40px; width: 400px;">
-        <h1><i class="fas fa-cog"></i> Opciones de Perfil</h1>
-        <h2>Seleccionar Opción</h2>
-        <select id="opciones" onchange="mostrarFormulario()">
-            <option value="contrasena">Contraseña</option>
-            <option value="telefono">Número de Teléfono</option>
-            <option value="email">Correo Electrónico</option>
-        </select>
-    </section>
-    <main>
-        <section id="formContrasena" style="display: none;">
-            <h1>Cambiar Contraseña</h1>
-            <label for="password">Nueva Contraseña:</label>
-            <input type="password" id="password" name="password" placeholder="Nueva contraseña">
-            <button onclick="guardarCambios('contrasena')">Guardar Cambios</button>
-        </section>
-
-        <section id="formTelefono" style="display: none;">
-            <h1>Cambiar Número de Teléfono</h1>
-            <label for="phone">Nuevo Número de Teléfono:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Nuevo número de teléfono">
-            <button onclick="guardarCambios('telefono')">Guardar Cambios</button>
-        </section>
-
-        <section id="formEmail" style="display: none;">
-            <h1>Cambiar Correo Electrónico</h1>
-            <label for="email">Nuevo Correo Electrónico:</label>
-            <input type="email" id="email" name="email" placeholder="Nuevo correo electrónico">
-            <button onclick="guardarCambios('email')">Guardar Cambios</button>
-        </section>
+    <div class="settings-page">
+        <div class="settings-container">
+            <h1 class="page-title">Account</h1>
+            <div class="settings-section">
+                <h2 class="settings-title">General Information</h2>
+                <div class="non-active-form">
+                    <p>ccu-an-b</p><i class="fas fa-pen"></i>
+                </div>
+                <div>
+                    <div class="non-active-form">
+                        <p class="capitalize">chloé</p><i class="fas fa-pen"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="non-active-form">
+                        <p class="capitalize">c</p><i class="fas fa-pen"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="non-active-form">
+                        <p>chloe@test.fr</p><i class="fas fa-pen"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-section">
+                <h2 class="settings-title">My profile</h2>
+                <form class="form my-form">
+                    <div class="img-upload-container">
+                        <label class="img-upload btn btn-bwm"
+                            style="background-image: url(&quot;/profile-placeholder.jpg&quot;);">
+                            <input type="file" accept=".jpg, .png, .jpeg, .gif" value="">
+                        </label>
+                        <h4>Change Your Profile Picture</h4>
+                        <div class="img-preview-container">
+                            <div class="img-preview"
+                                style="background-image: url('http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png');">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <button class="btn button full" type="submit" disabled="">Save New Picture</button>
+                    </div>
+                </form>
+            </div>
+            <div class="settings-section">
+                <h2 class="settings-title">Password</h2>
+                <form class="form my-form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input name="currentPassword" placeholder="Old Password" type="password"
+                                class="form-control" autocomplete="Old Password" value="">
+                            <span class="focus-input"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input name="password" placeholder="New Password" type="password" class="form-control"
+                                autocomplete="New Password" value="">
+                            <span class="focus-input"></span>
+                        </div>
+                    </div>
+                    <div class="form-submit right">
+                        <button class="btn button full" type="submit" disabled="">Change Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     </main>
     <footer>
         <p>&copy; 2023 StudyMentor. Todos los derechos reservados.</p>
@@ -516,83 +820,6 @@
             <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
         </div>
     </footer>
-    <script>
-        function mostrarFormulario() {
-            const opciones = document.getElementById('opciones');
-            const formContrasena = document.getElementById('formContrasena');
-            const formTelefono = document.getElementById('formTelefono');
-            const formEmail = document.getElementById('formEmail');
-
-            formContrasena.style.display = 'none';
-            formTelefono.style.display = 'none';
-            formEmail.style.display = 'none';
-
-            if (opciones.value === 'contrasena') {
-                formContrasena.style.display = 'block';
-            } else if (opciones.value === 'telefono') {
-                formTelefono.style.display = 'block';
-            } else if (opciones.value === 'email') {
-                formEmail.style.display = 'block';
-            }
-        }
-    </script>
-    <script>function Time() {
-
-            // Creating object of the Date class
-            var date = new Date();
-
-            // Get current hour
-            var hour = date.getHours();
-            // Get current minute
-            var minute = date.getMinutes();
-            // Get current second
-            var second = date.getSeconds();
-
-            // Variable to store AM / PM
-            var period = "";
-
-            // Assigning AM / PM according to the current hour
-            if (hour >= 12) {
-                period = "PM";
-            } else {
-                period = "AM";
-            }
-
-            // Converting the hour in 12-hour format
-            if (hour == 0) {
-                hour = 12;
-            } else {
-                if (hour > 12) {
-                    hour = hour - 12;
-                }
-            }
-
-            // Updating hour, minute, and second
-            // if they are less than 10
-            hour = update(hour);
-            minute = update(minute);
-            second = update(second);
-
-            // Adding time elements to the div
-            document.getElementById("digital-clock").innerText = hour + " : " + minute + " : " + second + " " + period;
-
-            // Set Timer to 1 sec (1000 ms)
-            setTimeout(Time, 1000);
-        }
-
-        // Function to update time elements if they are less than 10
-        // Append 0 before time elements if they are less than 10
-        function update(t) {
-            if (t < 10) {
-                return "0" + t;
-            }
-            else {
-                return t;
-            }
-        }
-
-        Time();
-    </script>
 </body>
 
 </html>

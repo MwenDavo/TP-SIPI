@@ -21,10 +21,9 @@
             background-image: radial-gradient(hsl(170, 81%, 73%) 2px,
                     transparent 2px);
             background-size: 40px 40px;
-            overflow-x: hidden;
-            /* Ocultar desplazamiento horizontal */
-            overflow-y: hidden;
-            /* Ocultar desplazamiento vertical */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
@@ -91,6 +90,7 @@
             text-align: center;
             padding: 1em;
             bottom: 0;
+            margin-top: auto;
         }
 
         #left {
@@ -117,13 +117,20 @@
 
         @media screen and (max-width: 2048px) {
             .cta {
-                font-size: 37px;
+                font-size: 30px;
             }
         }
 
         @media screen and (max-width: 2047px) {
             .cta {
-                font-size: 30px;
+                font-size: 28px;
+            }
+
+            body {
+                overflow-x: hidden;
+                /* Ocultar desplazamiento horizontal */
+                overflow-y: hidden;
+                /* Ocultar desplazamiento vertical */
             }
         }
 
@@ -134,6 +141,11 @@
 
             #botonesSvg {
                 padding-top: 40px;
+            }
+
+            body {
+                overflow-y: auto;
+                overflow-x: auto;
             }
         }
 
@@ -278,6 +290,89 @@
             display: flex;
             justify-content: space-between;
         }
+
+        .notification.notify:after {
+            content: "!";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 1.3333em;
+            width: 2em;
+            margin: 1.0833em 0;
+            border-radius: 50%;
+            font-size: 0.75em;
+            line-height: 2;
+            text-align: center;
+            background: #f53d3d;
+            box-shadow: 0 0 0 0.25em #c20a0a;
+            animation: pulse 0.75s infinite;
+        }
+
+        @-webkit-keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0.2em #c20a0a;
+            }
+
+            25% {
+                box-shadow: 0 0 0 0.05em #c20a0a;
+            }
+
+            50% {
+                box-shadow: 0 0 0 0.375em #c20a0a;
+            }
+
+            75% {
+                box-shadow: 0 0 0 0.2em #c20a0a;
+            }
+
+            100% {
+                box-shadow: 0 0 0 0.3em #c20a0a;
+            }
+        }
+
+        @-moz-keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0.2em #c20a0a;
+            }
+
+            25% {
+                box-shadow: 0 0 0 0.05em #c20a0a;
+            }
+
+            50% {
+                box-shadow: 0 0 0 0.375em #c20a0a;
+            }
+
+            75% {
+                box-shadow: 0 0 0 0.2em #c20a0a;
+            }
+
+            100% {
+                box-shadow: 0 0 0 0.3em #c20a0a;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0.2em #c20a0a;
+            }
+
+            25% {
+                box-shadow: 0 0 0 0.05em #c20a0a;
+            }
+
+            50% {
+                box-shadow: 0 0 0 0.375em #c20a0a;
+            }
+
+            75% {
+                box-shadow: 0 0 0 0.2em #c20a0a;
+            }
+
+            100% {
+                box-shadow: 0 0 0 0.3em #c20a0a;
+            }
+        }
     </style>
 </head>
 
@@ -288,15 +383,16 @@
                 <a href="Main.html"><img src="Fotos/Logo_animado_sin_fondo.gif" alt="StudyMentor Logo" width="138,5px"
                         height="107,5px"></a>
             </div>
+            <h1>¡Bienvenido a StudyMentor!</h1>
             <div id="digital-clock"></div>
         </div>
-        <h1>¡Bienvenido a StudyMentor!</h1>
+
     </header>
     <nav>
         <ul style="margin-left: 20px;margin-bottom: 20px;" id="botonesSvg">
             <li>
                 <div class="wrapper" id="">
-                    <a class="cta" href="EnConstruccion.html">
+                    <a class="cta" href="Test.html">
                         <span><i class=" fas fa-graduation-cap section-icon"></i>
                             <div>Test de Estudio</div>
                         </span>
@@ -321,7 +417,7 @@
             </li>
             <li>
                 <div class="wrapper">
-                    <a class="cta" href="Enciclopedia.html">
+                    <a class="cta" href="EnciclopediaV2.html">
                         <span><i class="fas fa-book section-icon"></i>
                             <div>Enciclopedia</div>
                         </span>
@@ -348,7 +444,8 @@
                 <div class="wrapper">
                     <a class="cta" href="EnConstruccion.html">
                         <span><i class=" fas fa-bell section-icon"></i>
-                            <div>Notificaciones</div>
+                            <div>Notificaciones <div class="notification notify"></div>
+                            </div>
                         </span>
                         <span>
                             <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
@@ -399,14 +496,12 @@
         <div style="padding-top: 20px;">
             <a id="profile" href="Perfil.html"><i class="fas fa-user section-icon"></i> Perfil</a>
             <a id="options" href="Ajustes.html"><i class="fas fa-cog section-icon"></i> Ajustes</a>
-            <a id="logout" href="Login.html"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
+            <a id="logout" href="LoginTestV2.html"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
         </div>
     </nav>
     </div>
     <main>
-        <!-- Contenido dinámico cargado por React -->
-        <div id="content"></div>
-        <section>
+        <section style="padding-left: 80px; padding-right: 80px;">
             <p>
                 ¡Hola y bienvenido a StudyMentor! Aqui nos enfocaremos en ayudarte en tu camino academico
                 aportando las herramientas adecuadas. Te proveeremos consejo y metodologias para ayudarte en el estudio,
@@ -442,8 +537,6 @@
             <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
         </div>
     </footer>
-    <script src="react.js"></script>
-    <script src="app.js"></script>
     <script>function Time() {
 
             // Creating object of the Date class

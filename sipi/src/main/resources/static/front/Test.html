@@ -8,14 +8,19 @@
 
     <!-- Añadir Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel=" icon" type="image/png" href="Fotos/SIP_Logo.png">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
-        body {
+        * {
             font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+
             margin: 0;
             padding: 0;
-            background-color: #fff;
+            background-color: #eae7e7;
         }
 
         header {
@@ -57,7 +62,7 @@
         }
 
         .question input[type="range"] {
-            width: 80%;
+            width: 100%;
             margin: 1em 0;
         }
 
@@ -68,6 +73,7 @@
             padding: 0.5em 1em;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         .question button:hover {
@@ -77,52 +83,140 @@
         .test-container {
             margin-top: 220px;
         }
+
+        nav {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.5em;
+            display: flex;
+            /* Distribuir elementos a los extremos */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            display: flex;
+            /* Para alinear el ícono y el texto verticalmente */
+            align-items: center;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.5s ease;
+        }
+
+        nav a:hover {
+            background-color: #297fb8;
+        }
+
+        /*----------*/
+
+        .value {
+            text-align: center;
+            font-weight: bold;
+            font-size: 3em;
+            width: 150px;
+            height: 50px;
+            line-height: 60px;
+            margin: 40px auto;
+            letter-spacing: -.07em;
+            text-shadow: white 2px 2px 2px;
+        }
+
+        input[type="range"] {
+            display: block;
+            -webkit-appearance: none;
+            background-color: #bdc3c7;
+            width: 100%;
+            height: 5px;
+            border-radius: 5px;
+            margin: 0 auto;
+            outline: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            background-color: #e74c3c;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: .3s ease-in-out;
+        }
+
+        ​ input[type="range"]::-webkit-slider-thumb:hover {
+            background-color: white;
+            border: 2px solid #e74c3c;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:active {
+            transform: scale(1.6);
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Test de Estudio</h1>
+        <nav>
+            <div>
+                <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
+                        height="53,75px">
+                    <i class="fas fa-arrow-left back-icon" style="padding-left: 15px;padding-right: 5px;"></i>
+                    <p>Volver al Menu Principal</p>
+                </a>
+
+            </div>
+            <h1 style="text-align: center; margin: 0 auto; padding-top: 15px; margin-left: 600px;">Test de Estudio</h1>
+        </nav>
     </header>
     <main>
         <div class="test-container">
             <div id="question0" class="question" style="display: block;">
                 <h3>¿Preparado/a?</h3>
-                <p>Estas por comenzar tu Test de Estudio, esto nos ayudará a recomendarte los metodos de estudio según
-                    tus parámetros personales</p>
-                <input type="range" min="1" max="10" value="5" id="slider1">
-                <button onclick="nextQuestion()">Siguiente</button>
+                <p>Estas por comenzar tu Test de Estudio, esto nos ayudará a recomendarte los metodos de estudio
+                    según
+                    tus parámetros personales. Tienes que dar un valor del 1 al 10, 1 siendo absolutamente nada y 10
+                    totalmente seguro. No te preocupes acerca de tu desempeño, ¡puedes repetir el Test las
+                    veces
+                    que desees!</p>
+                <button onclick="nextQuestion()">Comenzar el Test</button>
             </div>
             <div class="test-container">
                 <div id="question1" class="question">
                     <h3>Pregunta 1</h3>
                     <p>Goku supersaian siuuu </p>
-                    <input type="range" min="1" max="10" value="5" id="slider1">
+                    <div class="value">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question2" class="question">
                     <h3>Pregunta 2</h3>
-                    <input type="range" min="1" max="10" value="5" id="slider2">
+                    <div class="value">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question3" class="question">
                     <h3>Pregunta 3</h3>
-                    <input type="range" min="1" max="10" value="5" id="slider2">
+                    <div class="value">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question4" class="question">
                     <h3>Pregunta 4</h3>
-                    <input type="range" min="1" max="10" value="5" id="slider2">
+                    <div class="value">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question5" class="question">
                     <h3>Pregunta 5</h3>
-                    <input type="range" min="1" max="10" value="5" id="slider2">
+                    <div class="value">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question6" class="question">
                     <h3>Pregunta 6</h3>
-                    <input type="range" min="1" max="10" value="5" id="slider2">
+                    <div class="value">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
             </div>
@@ -144,6 +238,18 @@
                 alert('¡Test completado! Encontraras tus resultados en la seccion de Enciclopedia');
             }
         }
+
+    </script>
+    <script>
+        var elem = document.querySelector('input[type="range"]');
+
+        var rangeValue = function () {
+            var newValue = elem.value;
+            var target = document.querySelector('.value');
+            target.innerHTML = newValue;
+        }
+
+        elem.addEventListener("input", rangeValue);
     </script>
 </body>
 
