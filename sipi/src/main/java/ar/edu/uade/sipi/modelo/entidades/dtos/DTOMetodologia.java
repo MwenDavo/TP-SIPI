@@ -15,6 +15,10 @@ public class DTOMetodologia {
         this.puntuacionTotal = puntuacionTotal;
     }
 
+    public DTOMetodologia(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getContenido() {
         return contenido;
     }
