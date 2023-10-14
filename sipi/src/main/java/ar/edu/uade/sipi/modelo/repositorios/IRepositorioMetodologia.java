@@ -5,11 +5,13 @@ import com.google.gson.JsonArray;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
+import java.util.List;
+
 public interface IRepositorioMetodologia extends MongoRepository<Metodologia, Long> {
 
     @Query(" {nombre:'?0'}")
     Metodologia getByNombre(String nombre);
 
-    @Query(fields = "{'nombre':1,'valoresMetodo':1}")
-    JsonArray getValores();
+    @Query(value = "{ '_id' : { $gt: ?0 } }", fields = "{'nombre': 1,'valoresMetodo': 1}")
+    List<Metodologia> getValores();
 }
