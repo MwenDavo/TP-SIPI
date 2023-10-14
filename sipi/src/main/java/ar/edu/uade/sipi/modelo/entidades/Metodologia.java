@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "metodologias")
@@ -19,17 +20,17 @@ public class Metodologia {
     private List<Reseña> reseñas;
     private int puntuacionTotal;
 
-    private int[] valoresMetodo;
+    private ArrayList<Integer> valoresMetodo;
 
     public Metodologia() {
     }
 
-    public Metodologia (String nombre, int[] valoresMetodo){
+    public Metodologia (String nombre, ArrayList<Integer> valoresMetodo){
         this.nombre = nombre;
         this.valoresMetodo = valoresMetodo;
     }
 
-    public Metodologia(String nombre, String contenido, List<Reseña> reseñas, int puntuacionTotal, int[] valoresMetodo) {
+    public Metodologia(String nombre, String contenido, List<Reseña> reseñas, int puntuacionTotal, ArrayList<Integer> valoresMetodo) {
         this.nombre = nombre;
         this.contenido = contenido;
         this.reseñas = reseñas;
@@ -77,11 +78,11 @@ public class Metodologia {
         this.puntuacionTotal = puntuacionTotal;
     }
 
-    public int[] getValoresMetodo() {
+    public ArrayList<Integer> getValoresMetodo() {
         return valoresMetodo;
     }
 
-    public void setValoresMetodo(int[] valoresMetodo) {
+    public void setValoresMetodo(ArrayList<Integer> valoresMetodo) {
         this.valoresMetodo = valoresMetodo;
     }
 }

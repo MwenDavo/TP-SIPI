@@ -20,7 +20,7 @@ public class ServicioTest implements IServicioTest{
     IRepositorioMetodologia repositorioMetodologia;
 
     @Override
-    public Metodologia guardarValoresUsuario(int[] valoresUsuario) {
+    public Metodologia guardarValoresUsuario(ArrayList<Integer> valoresUsuario) {
         JsonArray jsonArray = ConvertToJsonArray(repositorioMetodologia.getValores());
         KNN knn = new KNN(jsonArray,valoresUsuario);
         ArrayList<Metodologia> metodosElegidos =  knn.CalculoKNN();
