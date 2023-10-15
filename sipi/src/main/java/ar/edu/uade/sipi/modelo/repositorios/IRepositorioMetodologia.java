@@ -12,6 +12,6 @@ public interface IRepositorioMetodologia extends MongoRepository<Metodologia, Lo
     @Query(" {nombre:'?0'}")
     Metodologia getByNombre(String nombre);
 
-    @Query(value = "{ '_id' : { $gt: 0 }}", fields = "{'nombre': 1,'valoresMetodo': 1}")
-    List<Metodologia> getValores(); //todo corregir metodologias recibidas ---> recibe vacia la lista
+    @Query(value = "{ 'id' : { $gt: 0 }}", fields = "{'nombre': 1,'valoresMetodo': 1}")
+    List<Metodologia> getValores();
 }

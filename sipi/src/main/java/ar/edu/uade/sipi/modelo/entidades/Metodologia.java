@@ -8,10 +8,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "metodologias")
+@Document(collection = "metodos_estudio")
 public class Metodologia {
     @Transient
-    public static final String NOMBRE_SECUENCIA = "secuencia_metodologias";
+    public static final String NOMBRE_SECUENCIA = "metodologias";
     @Id
     private Long id;
     @Indexed(unique = true)

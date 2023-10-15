@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Lista {
     private ArrayList<Integer> valoresUsuario;
 
-public Lista(){
-}
+    public Lista(){
+    }
 
-public Lista(ArrayList<Integer> valoresUsuario){
+    public Lista(ArrayList<Integer> valoresUsuario){
     this.valoresUsuario = valoresUsuario;
 }
 

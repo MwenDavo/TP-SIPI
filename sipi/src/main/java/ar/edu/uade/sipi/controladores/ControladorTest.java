@@ -19,15 +19,8 @@ public class ControladorTest {
     private IServicioTest servicioTest;
 
     @PostMapping(value = "/getvaloresUsuario")
-    public ResponseEntity<DTOMetodologia> getValoresUsuario(@RequestBody Lista valoresUsuario){
-        DTOMetodologia metodologiaRecomendada = toDTO(servicioTest.guardarValoresUsuario(valoresUsuario.getValoresUsuario()));
+    public ResponseEntity<String> getValoresUsuario(@RequestBody Lista valoresUsuario){
+        String metodologiaRecomendada = servicioTest.guardarValoresUsuario(valoresUsuario.getValoresUsuario());
         return new ResponseEntity<>(metodologiaRecomendada, HttpStatus.OK);
     }
-
-    private DTOMetodologia toDTO(Metodologia metodologia){
-        return new DTOMetodologia(metodologia.getNombre());
-    }
-
-
-
 }

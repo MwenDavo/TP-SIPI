@@ -3,7 +3,8 @@ package ar.edu.uade.sipi.servicios;
 import ar.edu.uade.sipi.modelo.entidades.Metodologia;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IServicioTest {
-    Metodologia guardarValoresUsuario(ArrayList<Integer> valoresUsuario);
+    String guardarValoresUsuario(List<Integer> valoresUsuario);
 }

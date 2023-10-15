@@ -20,19 +20,9 @@ public class ServicioTest implements IServicioTest{
     IRepositorioMetodologia repositorioMetodologia;
 
     @Override
-    public Metodologia guardarValoresUsuario(ArrayList<Integer> valoresUsuario) {
-        JsonArray jsonArray = ConvertToJsonArray(repositorioMetodologia.getValores());
-        KNN knn = new KNN(jsonArray,valoresUsuario);
-        ArrayList<Metodologia> metodosElegidos =  knn.CalculoKNN();
+    public String guardarValoresUsuario(List<Integer> valoresUsuario) {
+        KNN knn = new KNN(repositorioMetodologia.getValores(),valoresUsuario);
+        List<String> metodosElegidos =  knn.CalculoKNN();
         return knn.SeleccionMejorMetodo(metodosElegidos);
-    }
-
-    private JsonArray ConvertToJsonArray(List<Metodologia> valores) {
-        JsonArray jsonArray = new JsonArray();
-        Gson gson = new Gson();
-        for (Metodologia m:valores){
-            jsonArray.add(gson.toJson(m));
-        }
-        return jsonArray;
     }
 }

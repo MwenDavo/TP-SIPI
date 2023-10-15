@@ -6,61 +6,58 @@ import com.google.gson.JsonArray;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class KNN {
-    private JsonArray metodosJson;
+    List<Metodologia> metodos;
+    List<Integer> valoresUsuario;
 
-    ArrayList<Metodologia> metodos;
 
-    ArrayList<Integer> valoresUsuario;
-
-    public KNN(JsonArray metodosJson, ArrayList<Integer> valoresUsuario){
-        this.metodosJson = metodosJson;
-        Gson gson = new Gson();
-        this.metodos = gson.fromJson(metodosJson,ArrayList.class);
+    public KNN(List<Metodologia> metodos, List<Integer> valoresUsuario){
+        this.metodos = metodos;
         this.valoresUsuario = valoresUsuario;
     }
 
-    public Metodologia SeleccionMejorMetodo(ArrayList<Metodologia> valoresMetodos) {
-        Metodologia mayorRepetida = new Metodologia();
+    public String SeleccionMejorMetodo(List<String> metodosSeleccionados) {
+        String mayorRepetida = "";
         int mayorCantidad = 0;
-        for(Metodologia m: valoresMetodos){
+        for(Metodologia m: metodos){
             int count = 0;
-            for (Metodologia m1:valoresMetodos) {
-                if (m.equals(m1)){
-                    count+=1;
+            for (String s : metodosSeleccionados) {
+                if (s.equals(m.getNombre())){
+                    count += 1;
                 }
             }
             if (count>mayorCantidad){
                 mayorCantidad = count;
-                mayorRepetida = m;
+                mayorRepetida = m.getNombre();
             }
         }
-
-
         return mayorRepetida;
     }
 
-    public  ArrayList<Metodologia> CalculoKNN() {
-        ArrayList<Metodologia> metodosElegidos = new ArrayList<>();
+    public List<String> CalculoKNN() {
+        List<String> metodosElegidos = new ArrayList<>();
 
-        for(int i = 0;i<=valoresUsuario.size();i++){
+        for(int i = 0;i<valoresUsuario.size();i++){
 
             int MenorDist = Integer.MAX_VALUE;
+
+            String menor = "";
 
             for (Metodologia metodo: metodos){
 
                 MenorDist = Math.min(MenorDist,Math.abs(valoresUsuario.get(i) - metodo.getValoresMetodo().get(i)));//ECUACION MANHATTAN
                 if (MenorDist == Math.abs(valoresUsuario.get(i) - metodo.getValoresMetodo().get(i))){//ECUACION MANHATTAN
-                    metodosElegidos.add(i,metodo);
+                    menor = metodo.getNombre();
                 }
+
             }
+            metodosElegidos.add(menor);
         }
+
         return metodosElegidos;
     }
-
-
-
 }
