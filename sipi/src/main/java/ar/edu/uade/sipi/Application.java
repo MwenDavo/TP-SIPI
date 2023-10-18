@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class Application implements CommandLineRunner {
+public class Application implements CommandLineRunner{
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

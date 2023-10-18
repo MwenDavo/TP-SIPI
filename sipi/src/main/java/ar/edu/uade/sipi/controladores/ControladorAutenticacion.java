@@ -22,7 +22,14 @@ public class ControladorAutenticacion {
     private SecretKey secretKey;
     private final int EXPIRATION_TIME_IN_HOURS = 24;
 
-    @PostMapping("/registro")
+    /*@PostMapping("/registro")
+    private ResponseEntity<?> register(@RequestBody DTOUsuario dtoUsuario) {
+        Usuario usuario = convertToEntity(dtoUsuario);
+        iServicioAutenticacion.registro(usuario);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }*/
+
+    @GetMapping("/registro")
     private ResponseEntity<?> register(@RequestBody DTOUsuario dtoUsuario) {
         Usuario usuario = convertToEntity(dtoUsuario);
         iServicioAutenticacion.registro(usuario);
@@ -43,6 +50,7 @@ public class ControladorAutenticacion {
         }
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
+
 
     private Usuario convertToEntity(DTOUsuario dtoUsuario) {
         return new Usuario(

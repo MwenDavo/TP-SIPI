@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>StudyMentor - Registro</title>
+
+    <!-- Añadir Font Awesome -->
+    <link rel="icon" type="image/png" href="Fotos/SIP_Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            text-align: center;
+            padding: 2em;
+        }
+
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            width: 300px;
+        }
+
+        .register-box img {
+            margin-bottom: 1em;
+        }
+
+        .register-box input {
+            width: 100%;
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .register-box button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-box button:hover {
+            background-color: #297fb8;
+        }
+
+        body {
+            margin: auto;
+            overflow: auto;
+            background: linear-gradient(315deg, rgba(101, 0, 94, 1) 3%, rgba(60, 132, 206, 1) 38%, rgba(48, 238, 226, 1) 68%, rgba(255, 25, 25, 1) 98%);
+            animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            background-attachment: fixed;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        .wave {
+            background: rgb(255 255 255 / 25%);
+            border-radius: 1000% 1000% 0 0;
+            position: fixed;
+            width: 200%;
+            height: 12em;
+            animation: wave 10s -3s linear infinite;
+            transform: translate3d(0, 0, 0);
+            opacity: 0.8;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .wave:nth-of-type(2) {
+            bottom: -1.25em;
+            animation: wave 18s linear reverse infinite;
+            opacity: 0.8;
+        }
+
+        .wave:nth-of-type(3) {
+            bottom: -2.5em;
+            animation: wave 20s -1s reverse infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes wave {
+            2% {
+                transform: translateX(1);
+            }
+
+            25% {
+                transform: translateX(-25%);
+            }
+
+            50% {
+                transform: translateX(-50%);
+            }
+
+            75% {
+                transform: translateX(-25%);
+            }
+
+            100% {
+                transform: translateX(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div class="register-container">
+            <div class="register-box">
+                <img src="front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+                <h2>Registro de Usuario</h2>
+                <form action="/autenticacion/registro" method="POST">
+                    <input type="text" name="fullname" placeholder="Nombre Completo" required>
+                    <input type="email" name="email" placeholder="Correo Electrónico" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="tel" name="phone" placeholder="Teléfono (opcional)">
+                    <button type="submit" onclick="registrarUsuario()">Registrarse</button>
+                </form>
+                <p>¿Ya tienes una cuenta?</p>
+                <a href="Login.html">Inicia Sesión aquí</a>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    function registrarUsuario(){
+    json
+        {
+          "nombreUsuario": document.getElementById("fullname")
+          "contraseña": document.getElementById("password")
+          "correoElectronico": document.getElementById("email")
+        }
+        fetch('http://localhost:8080/autenticacion/registro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: json
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Muestra el mensaje de respuesta del servidor
+                document.getElementById('mensaje').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+</html>
