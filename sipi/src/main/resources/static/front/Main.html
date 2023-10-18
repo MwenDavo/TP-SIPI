@@ -18,13 +18,20 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             /* Eliminar el margen predeterminado del body */
-            background-image: radial-gradient(hsl(170, 81%, 73%) 2px,
-                    transparent 2px);
-            background-size: 40px 40px;
+            background-image: url(Fotos/reading.jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
+
+        /*TODO cambiar blur al fondo
+
+        /*
+        radial-gradient(hsl(170, 81%, 73%) 2px,
+                    transparent 2px)*/
+
 
         header {
             background-color: #3498db;
@@ -32,8 +39,6 @@
             text-align: center;
             padding: 1em;
         }
-
-
 
         nav {
             background-color: #3498db;
@@ -501,7 +506,8 @@
     </nav>
     </div>
     <main>
-        <section style="padding-left: 80px; padding-right: 80px;">
+        <section
+            style="padding-left: 80px; padding-right: 80px; background-color: #fff; border-radius: 8px; padding: 10px;">
             <p>
                 ¡Hola y bienvenido a StudyMentor! Aqui nos enfocaremos en ayudarte en tu camino academico
                 aportando las herramientas adecuadas. Te proveeremos consejo y metodologias para ayudarte en el estudio,
