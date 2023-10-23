@@ -25,7 +25,7 @@ public class ServicioCorreo implements IServicioCorreo {
         props.setProperty("mail.smtp.user", "matiasfelau@gmail.com");
         props.setProperty("mail.smtp.ssl.protocol", "TLSv1.2");
         props.setProperty("mail.smtp.auth", "true");
-        Session session = Session.getDefaultInstance(props, null);
+        Session session = Session.getDefaultInstance(props);
         try {
             Message msg = new MimeMessage(session);
             msg.setFrom(new InternetAddress("matiasfelau@gmail.com"));
