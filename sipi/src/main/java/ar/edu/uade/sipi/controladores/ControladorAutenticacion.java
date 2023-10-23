@@ -18,7 +18,7 @@ import java.util.Date;
 @RequestMapping("/autenticacion")
 public class ControladorAutenticacion {
     @Autowired
-    private IServicioAutenticacion iServicioAutenticacion;
+    private IServicioAutenticacion servicioAutenticacion;
     @Autowired
     private SecretKey secretKey;
     private final int EXPIRATION_TIME_IN_HOURS = 24;
@@ -26,14 +26,14 @@ public class ControladorAutenticacion {
     @PostMapping("/registro")
     private ResponseEntity<?> register(@RequestBody DTOUsuario dtoUsuario) {
         Usuario usuario = convertToEntity(dtoUsuario);
-        iServicioAutenticacion.registro(usuario);
+        servicioAutenticacion.registro(usuario);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PostMapping(value = "/inicioSesion", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@RequestBody DTOUsuario dtoUsuario) {
         Usuario usuario = convertToEntity(dtoUsuario);
-        if (iServicioAutenticacion.inicioSesion(usuario.getNombreUsuario(), usuario.getContraseña()) != null) {
+        if (servicioAutenticacion.inicioSesion(usuario.getNombreUsuario(), usuario.getContraseña()) != null) {
             String token = Jwts.builder()
                     .setSubject(usuario.getNombreUsuario())
                     .setIssuedAt(new Date())
@@ -45,6 +45,11 @@ public class ControladorAutenticacion {
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
+    @PostMapping(value = "/olvidoContraseña")
+    public void olvidoContraseña(@RequestBody DTOUsuario dtoUsuario) {
+        Usuario usuario = convertToEntity(dtoUsuario);
+        servicioAutenticacion.generarContraseñaProvisoria(usuario.getCorreoElectronico());
+    }
 
     private Usuario convertToEntity(DTOUsuario dtoUsuario) {
         return new Usuario(
