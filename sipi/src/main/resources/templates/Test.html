@@ -159,8 +159,8 @@
     <header>
         <nav>
             <div>
-                <a href="../static/front/Main.html"><img src="../static/front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
-                                                         height="53,75px">
+                <a href="../static/front/Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo"
+                        width="69,625px" height="53,75px">
                     <i class="fas fa-arrow-left back-icon" style="padding-left: 15px;padding-right: 5px;"></i>
                     <p>Volver al Menu Principal</p>
                 </a>
@@ -185,48 +185,65 @@
                 <div id="question1" class="question">
                     <h3>Pregunta 1</h3>
                     <p>Goku supersaian siuuu </p>
-                    <div class="value">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5">
+                    <div class="value" id="valueDiv1">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5" id="input1">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question2" class="question">
                     <h3>Pregunta 2</h3>
-                    <div class="value">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5">
+                    <div class="value" id="valueDiv2">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5" id="input2">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question3" class="question">
                     <h3>Pregunta 3</h3>
-                    <div class="value">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5">
+                    <div class="value" id="valueDiv3">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5" id="input3">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question4" class="question">
                     <h3>Pregunta 4</h3>
-                    <div class="value">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5">
+                    <div class="value" id="valueDiv4">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5" id="input4">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question5" class="question">
                     <h3>Pregunta 5</h3>
-                    <div class="value">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5">
+                    <div class="value" id="valueDiv5">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5" id="input5">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question6" class="question">
                     <h3>Pregunta 6</h3>
-                    <div class="value">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5">
+                    <div class="value" id="valueDiv6">5</div>
+                    <input type="range" min="1" max="10" step="1" value="5" id="input6">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
             </div>
     </main>
 
     <script>
-        let currentQuestion = 0;
+        var currentQuestion = 0;
+
+        var respuestas = [];
+        var elem = document.querySelector('input[type="range"]');
+
+
+        var rangeValue = function () {
+            var newValue = elem.value;
+            console.log("el pepe");
+            var target = document.getElementById(`valueDiv${currentQuestion}`);
+            console.log(target);
+            target.innerText = newValue;
+        }
 
         function nextQuestion() {
             const currentQuestionElement = document.getElementById(`question${currentQuestion}`);
+            if (currentQuestion != 0) {
+                respuestas.push(document.getElementById(`valueDiv${currentQuestion}`).innerText);
+                console.log(respuestas);
+            }
+
             currentQuestionElement.style.display = 'none';
 
             currentQuestion += 1;
@@ -234,24 +251,37 @@
             const nextQuestionElement = document.getElementById(`question${currentQuestion}`);
             if (nextQuestionElement) {
                 nextQuestionElement.style.display = 'block';
+                elem = document.getElementById(`input${currentQuestion}`);
+                console.log(elem);
+                elem.addEventListener("input", rangeValue);
             } else {
-                alert('¡Test completado! Encontraras tus resultados en la seccion de Enciclopedia');
+                alert('¡Test completado! Encontraras tus resultados en la sección de Enciclopedia');
+                fetch('http://localhost:8080/test/getvaloresUsuario', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json; charset=UTF-8'
+                    },
+                    body: JSON.stringify(respuestas),
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log("Hola");
+                            return response.text();
+                        } else {
+                            console.log("Get a Job");
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
             }
         }
 
-    </script>
-    <script>
-        var elem = document.querySelector('input[type="range"]');
-
-        var rangeValue = function () {
-            var newValue = elem.value;
-            var target = document.querySelector('.value');
-            target.innerHTML = newValue;
-        }
-
         elem.addEventListener("input", rangeValue);
+        console.log("hola");
+
     </script>
-    <script src="funciones/checkToken.js"/>
+
+
+    <script src="funciones/checkToken.js"></script>
 </body>
 
 </html>
