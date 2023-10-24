@@ -28,6 +28,16 @@ public class ControladorMetodologia {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @PutMapping (value = "/put/reseñas")
+    public void updateMetodo(@RequestBody DTOMetodologia dtoMetodologia) {
+        Metodologia metodologia = convertToEntity(dtoMetodologia);
+        servicioMetodologia.updateMetodologia(metodologia);
+    }
+
+    private Metodologia convertToEntity(DTOMetodologia dtoMetodologia) {
+        return null; //TODO hacer convert to entity
+    }
+
     @GetMapping(value = "/all")
     public List<DTOMetodologia> getAll() {
         List<Metodologia> metodologias = servicioMetodologia.getAll();
@@ -53,8 +63,7 @@ public class ControladorMetodologia {
 
     private DTOReseña convertToDTO(Reseña reseña) {
         return new DTOReseña(
-                reseña.getPuntuacion(),
-                reseña.getDescripcion()
+                reseña.getPuntuacion()
         );
     }
 }
