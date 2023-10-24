@@ -27,22 +27,25 @@ public class ServicioCorreo implements IServicioCorreo {
         Session session = Session.getDefaultInstance(props);
         try {
             Message msg = new MimeMessage(session);
+            //todo add autentication
             msg.setFrom(new InternetAddress("matiasfelau@gmail.com"));
             msg.addRecipient(Message.RecipientType.TO,
                     new InternetAddress(usuario.getCorreoElectronico(), usuario.getNombreUsuario()));
             msg.setSubject("Olvido de contraseña.");
-            msg.setText("Se te otorgará una contraseña provisoria, usala junto con tu nombre de usuario para ingresar a tu cuenta y actualizar tu contraseña./n" +
+            msg.setText("Se te otorgará una contraseña provisoria, usala junto con tu nombre de usuario para ingresar a tu cuenta y actualizar tu contraseña." +
                     "La contraseña provisoria es:" + contraseñaProvisoria);
             Transport transport = session.getTransport("smtp");
             transport.connect("matiasfelau@gmail.com", "efrp vimx mwyc mxvd");
             transport.sendMessage(msg, msg.getRecipients(Message.RecipientType.TO));
             transport.close();
         } catch (AddressException e) {
-            // ...
+            System.out.println("Error en el mail");
         } catch (MessagingException e) {
-            // ...
+            System.out.println("Error en el mensaje");
+            System.out.println(e);
+            e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
-            // ...
+            System.out.println("Error en la codificacion");
         }
     }
 }
