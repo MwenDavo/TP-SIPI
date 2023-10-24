@@ -8,4 +8,7 @@ public interface IRepositorioUsuario extends MongoRepository<Usuario, Long> {
 
     @Query("{nombreUsuario:'?0'}")
     Usuario getByNombreUsuario(String nombreUsuario);
+
+    @Query("{correoElectronico: '?0'}")
+    Usuario getByCorreoElectronico(String correoElectronico);
 }
