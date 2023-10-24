@@ -220,6 +220,7 @@
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
             </div>
+        </div>
     </main>
 
     <script>
@@ -237,7 +238,7 @@
             target.innerText = newValue;
         }
 
-        function nextQuestion() {
+        function nextQuestion() { //todo EL CORS ORIGIN SALTA DANDO ERROR PORQUE EL FETCH ES LLAMADO DENTRO DE OTRO SCRIPT. HAY ALGUNA MANERA DE SACAR LOS DATOS DE NEXT QUESTION Y USARLOS EN OTRO SCRIPT CON EL FETCH?
             const currentQuestionElement = document.getElementById(`question${currentQuestion}`);
             if (currentQuestion != 0) {
                 respuestas.push(document.getElementById(`valueDiv${currentQuestion}`).innerText);
@@ -259,7 +260,8 @@
                 fetch('http://localhost:8080/test/getvaloresUsuario', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json; charset=UTF-8'
+                        'Content-Type': 'application/json; charset=UTF-8',
+                        'Access-Control-Allow-Origin': '*'
                     },
                     body: JSON.stringify(respuestas),
                 })

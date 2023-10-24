@@ -30,7 +30,7 @@ public class ConfiguracionSeguridad {
         http.authorizeHttpRequests(
                         (authz) -> authz.anyRequest().authenticated())
                 .addFilterBefore(jwtAuth(), UsernamePasswordAuthenticationFilter.class)
-                .csrf(AbstractHttpConfigurer::disable)
+                //.csrf(AbstractHttpConfigurer::disable)
         ;
         return http.build();
     }/*

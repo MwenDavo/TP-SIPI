@@ -133,7 +133,7 @@
             }
 
             100% {
-                transform: translateX(1);
+                transform: translateX(1%);
             }
         }
     </style>
@@ -153,7 +153,6 @@
                     <input type="tel" id="phone" placeholder="Teléfono (opcional)">
                     <button>Registrarse</button>
                 </form>
-                <button onclick="printFormulario()"></button>
                 <p id="mensaje"></p>
                 <p>¿Ya tienes una cuenta?</p>
                 <a href="LoginTestV2.html">Inicia Sesión aquí</a>
@@ -161,18 +160,6 @@
         </div>
     </main>
 </body>
-<script>
-    function printFormulario(){
-        const json =
-            {
-              nombreUsuario: document.getElementById("username").value,
-              contraseña: document.getElementById("password").value,
-              correoElectronico: document.getElementById("email").value
-            };
-        console.log(JSON.stringify(json));
-
-    }
-</script>
 <script>
     function registrarUsuario(){
     const json =
