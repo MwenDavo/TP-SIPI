@@ -7,7 +7,7 @@
     <title>StudyMentor - Inicio/Registro</title>
 
     <!-- Añadir Font Awesome -->
-    <link rel="icon" type="image/png" href="static.front/Fotos/SIP_Logo.png">
+    <link rel="icon" type="image/png" href="Fotos/SIP_Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
@@ -156,7 +156,7 @@
         <section>
             <div class="login-container">
                 <div class="login-box">
-                    <img src="static/front/Fotos/Logo_animado_sin_fondo.gif" alt="StudyMentor Logo" width="104,4375px"
+                    <img src="Fotos/Logo_animado_sin_fondo.gif" alt="StudyMentor Logo" width="104,4375px"
                         height="80,625px">
                     <h2>Iniciar Sesión</h2>
                     <form id="loginForm" action="/registro" method="post">
@@ -164,6 +164,7 @@
                         <input type="password" name="password" placeholder="Contraseña" required>
                         <button type="button" onclick="login()">Iniciar Sesión</button>
                     </form>
+                    <p id="errorP" style="color: red"></p>
                     <p>¿No tienes una cuenta?</p>
                     <p><a href="Registro.html">Regístrate aquí</a></p>
                 </div>
@@ -190,7 +191,6 @@
             };
 
             fetch(url, {
-                mode: 'no-cors',
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset=UTF-8'
@@ -199,8 +199,9 @@
             })
                 .then(response => {
                     if (response.ok) {
-                        return response.text();
+                         window.location.replace("Main.html");
                     } else {
+                        document.getElementById("errorP").innerHTML = "No se ha encontrado tu cuenta. ¡Por favor verifica tus datos!";
                         throw new Error('Error al iniciar sesión');
                     }
                 })
