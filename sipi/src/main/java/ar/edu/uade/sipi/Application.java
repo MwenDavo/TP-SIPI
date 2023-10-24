@@ -21,8 +21,8 @@ public class Application implements CommandLineRunner{
     public void run(String... args) throws Exception {
     }
 
-    @Bean
-    public WebMvcConfigurer corsConfigurer(){
+    //@Bean
+    /*public WebMvcConfigurer corsConfigurer(){
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry){
@@ -30,5 +30,5 @@ public class Application implements CommandLineRunner{
                         .allowedOrigins("http://localhost:63342");
             }
         };
-    }
+    }*/
 }
