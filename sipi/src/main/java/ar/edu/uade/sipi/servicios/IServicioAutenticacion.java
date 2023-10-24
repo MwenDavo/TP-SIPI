@@ -9,4 +9,6 @@ public interface IServicioAutenticacion {
     Usuario inicioSesion(String nombreUsuario, String contraseña);
 
     void generarContraseñaProvisoria(String correoElectronico);
+
+    Usuario inicioSesionGoogle(String correoElectronico);
 }

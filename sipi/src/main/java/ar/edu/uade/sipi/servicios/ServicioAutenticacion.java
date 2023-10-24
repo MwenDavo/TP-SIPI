@@ -2,13 +2,24 @@ package ar.edu.uade.sipi.servicios;
 
 import ar.edu.uade.sipi.modelo.entidades.Usuario;
 import ar.edu.uade.sipi.modelo.repositorios.IRepositorioUsuario;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.gson.GsonFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -63,4 +74,16 @@ public class ServicioAutenticacion implements IServicioAutenticacion {
         repositorioUsuario.save(usuario);
         servicioCorreo.enviarCorreoContraseñaProvisoria(usuario, nuevaContraseña.toString());
     }
+
+    @Override
+    public Usuario inicioSesionGoogle(String correoElectronico) {
+        return repositorioUsuario.getByCorreoElectronico(correoElectronico);
+    }
+
+
+
+
+
+
+
 }
