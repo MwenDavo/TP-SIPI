@@ -10,4 +10,6 @@ public interface IServicioMetodologia {
     Metodologia getByNombre(String nombre);
 
     List<Metodologia> getAll();
+
+    void updateMetodologia(Metodologia metodologia);
 }

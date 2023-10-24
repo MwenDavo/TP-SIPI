@@ -5,9 +5,8 @@ public class DTOReseña {
     private DTOUsuario usuario;
     private String descripcion;
 
-    public DTOReseña(int puntuacion, String descripcion) {
+    public DTOReseña(int puntuacion) {
         this.puntuacion = puntuacion;
-        this.descripcion = descripcion;
     }
 
     public int getPuntuacion() {

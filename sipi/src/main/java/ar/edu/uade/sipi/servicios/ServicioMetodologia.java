@@ -22,4 +22,9 @@ public class ServicioMetodologia implements IServicioMetodologia {
     public List<Metodologia> getAll() {
         return null;
     }
+
+    @Override
+    public void updateMetodologia(Metodologia metodologia) {
+        repositorioMetodologia.save(metodologia);
+    }
 }

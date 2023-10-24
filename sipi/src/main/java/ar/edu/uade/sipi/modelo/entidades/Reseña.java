@@ -12,15 +12,13 @@ public class Reseña {
     private Long id;
     private int puntuacion;
     private Usuario usuario;
-    private String descripcion;
 
     public Reseña() {
     }
 
-    public Reseña(int puntuacion, Usuario usuario, String descripcion) {
+    public Reseña(int puntuacion, Usuario usuario) {
         this.puntuacion = puntuacion;
         this.usuario = usuario;
-        this.descripcion = descripcion;
     }
 
     public long getId() {
@@ -47,11 +45,4 @@ public class Reseña {
         this.usuario = usuario;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }
