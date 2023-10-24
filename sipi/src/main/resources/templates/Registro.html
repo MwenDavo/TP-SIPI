@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>StudyMentor - Registro</title>
-
-    <!-- Añadir Font Awesome -->
     <link rel="icon" type="image/png" href="Fotos/SIP_Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
@@ -148,38 +146,67 @@
             <div class="register-box">
                 <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
                 <h2>Registro de Usuario</h2>
-                <form action="/autenticacion/registro" method="POST">
-                    <input type="text" name="fullname" placeholder="Nombre Completo" required>
-                    <input type="email" name="email" placeholder="Correo Electrónico" required>
-                    <input type="password" name="password" placeholder="Contraseña" required>
-                    <input type="tel" name="phone" placeholder="Teléfono (opcional)">
-                    <button type="submit" onclick="registrarUsuario()">Registrarse</button>
+                <form onsubmit="registrarUsuario()">
+                    <input type="text" id="username" placeholder="Nombre de Usuario" required>
+                    <input type="email" id="email" placeholder="Correo Electrónico" required>
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <input type="tel" id="phone" placeholder="Teléfono (opcional)">
+                    <button>Registrarse</button>
                 </form>
+                <button onclick="printFormulario()"></button>
+                <p id="mensaje"></p>
                 <p>¿Ya tienes una cuenta?</p>
-                <a href="Login.html">Inicia Sesión aquí</a>
+                <a href="LoginTestV2.html">Inicia Sesión aquí</a>
             </div>
         </div>
     </main>
 </body>
 <script>
+    function printFormulario(){
+        const json =
+            {
+              nombreUsuario: document.getElementById("username").value,
+              contraseña: document.getElementById("password").value,
+              correoElectronico: document.getElementById("email").value
+            };
+        console.log(JSON.stringify(json));
+
+    }
+</script>
+<script>
     function registrarUsuario(){
-    json
+    const json =
         {
-          "nombreUsuario": document.getElementById("fullname")
-          "contraseña": document.getElementById("password")
-          "correoElectronico": document.getElementById("email")
-        }
+          "nombreUsuario": document.getElementById("username").value,
+          "contraseña": document.getElementById("password").value,
+          "correoElectronico": document.getElementById("email").value
+        };
+
         fetch('http://localhost:8080/autenticacion/registro', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json; charset=UTF-8'
                 },
-                body: json
+                body: JSON.stringify(json)
             })
-            .then(response => response.text())
+            .then(response => {
+                if (response.ok) {
+                console.log("Hola");
+                return response.text();
+                } else {
+                        console.log("Get a Job");
+                }
+            })
             .then(data => {
-                // Muestra el mensaje de respuesta del servidor
-                document.getElementById('mensaje').innerText = data;
+                const mensajeElemento = document.getElementById('mensaje');
+            mensajeElemento.innerText = data;
+
+            // Puedes hacer más acciones según la respuesta, por ejemplo, cambiar el color del mensaje
+            if (response.ok) {
+                mensajeElemento.style.color = 'green';
+            } else {
+                mensajeElemento.style.color = 'red';
+            }
             })
             .catch(error => console.error('Error:', error));
     }

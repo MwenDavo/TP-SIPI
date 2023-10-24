@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"">
     <title>StudyMentor</title>
+    <script src="funciones/logOut.js"></script>
 
     <!-- Añadir Font Awesome -->
-    <link rel=" icon" type="image/png" href="Fotos/SIP_Logo.png">
+    <link rel=" icon" type="image/png" href="../static/front/Fotos/SIP_Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
@@ -406,8 +407,8 @@
     <header>
         <div class="headerTop">
             <div id="left">
-                <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
-                        height="53,75px"></a>
+                <a href="../static/front/Main.html"><img src="../static/front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
+                                                         height="53,75px"></a>
             </div>
             <div id="digital-clock"></div>
         </div>
@@ -519,7 +520,7 @@
         </div>
         <div style="padding-top: 40px;">
             <a id="profile" href="Perfil.html"><i class="fas fa-user section-icon"></i> Perfil</a>
-            <a id="logout" href="Login.html"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
+            <a id="logout" onclick="LogOut()"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
         </div>
     </nav>
     </div>
@@ -554,7 +555,7 @@
     <footer>
         <p>&copy; 2023 StudyMentor. Todos los derechos reservados.</p>
         <div>
-            <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+            <img src="../static/front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
         </div>
     </footer>
 </body>

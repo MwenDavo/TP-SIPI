@@ -9,6 +9,7 @@
     <!-- Añadir Font Awesome -->
     <link rel=" icon" type="image/png" href="Fotos/SIP_Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="funciones/logOut.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
@@ -289,6 +290,7 @@
             /* Cambiar el fondo a rojo al hacer hover */
             transition: background-color 0.3s ease;
             /* Agregar una transición suave */
+            cursor: pointer;
         }
 
         .headerTop {
@@ -501,7 +503,7 @@
         <div style="padding-top: 20px;">
             <a id="profile" href="Perfil.html"><i class="fas fa-user section-icon"></i> Perfil</a>
             <a id="options" href="Ajustes.html"><i class="fas fa-cog section-icon"></i> Ajustes</a>
-            <a id="logout" href="LoginTestV2.html"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
+            <a id="logout" onclick="LogOut()"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
         </div>
     </nav>
     </div>
@@ -599,6 +601,9 @@
         }
 
         Time();
+    </script>
+    <script>
+        console.log(localStorage.getItem('token'));
     </script>
 </body>
 

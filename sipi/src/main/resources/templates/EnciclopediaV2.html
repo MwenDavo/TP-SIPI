@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Enciclopedia de Textos</title>
+    <script src="funciones/logOut.js"></script>
 
     <!-- Añadir Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel=" icon" type="image/png" href="Fotos/SIP_Logo.png">
+    <link rel=" icon" type="image/png" href="../static/front/Fotos/SIP_Logo.png">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
@@ -150,8 +151,7 @@
     <header>
         <nav>
             <div>
-                <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
-                        height="53,75px">
+                <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
                     <i class="fas fa-arrow-left back-icon" style="padding-left: 15px;"></i>
                     <p>Volver al Menu Principal</p>
                 </a>
@@ -160,7 +160,7 @@
             <div style="padding-top: 20px;">
                 <a id="profile" href="Perfil.html"><i class="fas fa-user section-icon"></i> Perfil</a>
                 <a id="options" href="Ajustes.html"><i class="fas fa-cog section-icon"></i> Ajustes</a>
-                <a id="logout" href="Login.html"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
+                <a id="logout" onclick="LogOut()"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
             </div>
         </nav>
     </header>
@@ -195,7 +195,7 @@
                 <h3>Metodo Cornell</h3>
                 <p>Este método se basa en dividir una misma hoja de apuntes (idealmente de tamaño A4) en cuatro
                     apartados diferenciados para poder condensar todo el temario y estudiar de forma productiva.</p>
-                <a href="Docs Metodos/Cornell.html">Leer más!</a>
+                <a href="templates/DocsMetodos/Cornell.html">Leer más!</a>
             </div>
         </div>
     </div>

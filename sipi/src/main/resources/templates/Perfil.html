@@ -7,8 +7,9 @@
     <title>StudyMentor</title>
 
     <!-- Añadir Font Awesome -->
-    <link rel=" icon" type="image/png" href="Fotos/SIP_Logo.png">
+    <link rel=" icon" type="image/png" href="../static/front/Fotos/SIP_Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="funciones/logOut.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
@@ -363,8 +364,8 @@
 <body>
     <header>
         <div class="headerTop">
-            <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
-                    height="53,75px"></a>
+            <a href="../static/front/Main.html"><img src="../static/front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
+                                                     height="53,75px"></a>
             <div id="digital-clock"></div>
         </div>
         <h1>¡Bienvenido a StudyMentor!</h1>
@@ -475,7 +476,7 @@
         </div>
         <div style="padding-top: 40px;">
             <a id="options" href="Ajustes.html"><i class="fas fa-cog section-icon"></i> Ajustes</a>
-            <a id="logout" href="Login.html"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
+            <a id="logout" onclick="LogOut()"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
         </div>
     </nav>
     </div>
@@ -513,7 +514,7 @@
     <footer>
         <p>&copy; 2023 StudyMentor. Todos los derechos reservados.</p>
         <div>
-            <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+            <img src="../static/front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
         </div>
     </footer>
     <script>

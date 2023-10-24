@@ -31,7 +31,7 @@ public class ControladorAutenticacion {
     }
 
     @PostMapping(value = "/inicioSesion", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> login(@RequestBody DTOUsuario dtoUsuario) {
+        public ResponseEntity<?> login(@RequestBody DTOUsuario dtoUsuario) {
         Usuario usuario = convertToEntity(dtoUsuario);
         if (servicioAutenticacion.inicioSesion(usuario.getNombreUsuario(), usuario.getContraseña()) != null) {
             String token = Jwts.builder()
