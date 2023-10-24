@@ -44,7 +44,9 @@ public class ConfiguracionSeguridad {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().requestMatchers(
                 "/autenticacion/registro",
-                "/autenticacion/inicioSesion"
+                "/autenticacion/inicioSesion",
+                "/autenticacion/olvidoContraseña",
+                "/autenticacion/inicioSesion/Google"
         );
     }
 

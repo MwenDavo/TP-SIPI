@@ -61,7 +61,7 @@ public class ServicioAutenticacion implements IServicioAutenticacion {
 
     @Override
     public void generarContraseñaProvisoria(String correoElectronico) {
-        Usuario usuario = repositorioUsuario.getByCorreoElectronico(correoElectronico);
+        Usuario usuario = repositorioUsuario.getFirstByCorreoElectronico(correoElectronico);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         SecureRandom secureRandom = new SecureRandom();
         String caracteresDisponibles = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSQUVWXYZ0123456789,;.:-_+*{[}]/";
@@ -77,7 +77,7 @@ public class ServicioAutenticacion implements IServicioAutenticacion {
 
     @Override
     public Usuario inicioSesionGoogle(String correoElectronico) {
-        return repositorioUsuario.getByCorreoElectronico(correoElectronico);
+        return repositorioUsuario.getFirstByCorreoElectronico(correoElectronico);
     }
 
 

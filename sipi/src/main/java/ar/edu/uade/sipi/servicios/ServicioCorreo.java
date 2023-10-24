@@ -2,7 +2,6 @@ package ar.edu.uade.sipi.servicios;
 
 import ar.edu.uade.sipi.modelo.entidades.Usuario;
 import org.springframework.stereotype.Service;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
