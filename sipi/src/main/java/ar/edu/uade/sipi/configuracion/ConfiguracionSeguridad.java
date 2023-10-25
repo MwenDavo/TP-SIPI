@@ -21,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import javax.crypto.SecretKey;
 
 import static org.springframework.security.config.Customizer.withDefaults;
-
+//.
 @Configuration
 @EnableWebSecurity
 public class ConfiguracionSeguridad{

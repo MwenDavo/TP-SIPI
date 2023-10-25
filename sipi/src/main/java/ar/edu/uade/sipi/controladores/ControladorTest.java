@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import java.util.ArrayList;
-
+//.
 @RestController
 @CrossOrigin("http://localhost:63342")
 @RequestMapping("/test")
