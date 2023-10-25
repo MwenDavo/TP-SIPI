@@ -19,7 +19,7 @@ public class ServicioCorreo implements IServicioCorreo {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        props.setProperty("mail.smtp.starttls", "true");
+        props.setProperty("mail.smtp.starttls.enable", "true");
         props.setProperty("mail.smtp.port", "587");
         props.setProperty("mail.smtp.user", "matiasfelau@gmail.com");
         props.setProperty("mail.smtp.ssl.protocol", "TLSv1.2");
@@ -27,12 +27,11 @@ public class ServicioCorreo implements IServicioCorreo {
         Session session = Session.getDefaultInstance(props);
         try {
             Message msg = new MimeMessage(session);
-            //todo add autentication
             msg.setFrom(new InternetAddress("matiasfelau@gmail.com"));
             msg.addRecipient(Message.RecipientType.TO,
                     new InternetAddress(usuario.getCorreoElectronico(), usuario.getNombreUsuario()));
             msg.setSubject("Olvido de contraseña.");
-            msg.setText("Se te otorgará una contraseña provisoria, usala junto con tu nombre de usuario para ingresar a tu cuenta y actualizar tu contraseña." +
+            msg.setText("Se te otorgará una contraseña provisoria, usala junto con tu nombre de usuario para ingresar a tu cuenta y actualizar tu contraseña. " +
                     "La contraseña provisoria es:" + contraseñaProvisoria);
             Transport transport = session.getTransport("smtp");
             transport.connect("matiasfelau@gmail.com", "efrp vimx mwyc mxvd");
@@ -42,8 +41,6 @@ public class ServicioCorreo implements IServicioCorreo {
             System.out.println("Error en el mail");
         } catch (MessagingException e) {
             System.out.println("Error en el mensaje");
-            System.out.println(e);
-            e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             System.out.println("Error en la codificacion");
         }

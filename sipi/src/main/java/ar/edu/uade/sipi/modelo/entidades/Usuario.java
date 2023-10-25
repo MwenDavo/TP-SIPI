@@ -15,7 +15,6 @@ public class Usuario {
     private String nombreUsuario;
     private String contraseña;
     private String metodologiaRecomendada;
-
     @Indexed(unique = true)
     private String correoElectronico;
 

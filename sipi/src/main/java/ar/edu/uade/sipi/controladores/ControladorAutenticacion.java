@@ -55,6 +55,11 @@ public class ControladorAutenticacion {
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
+    @PostMapping(value = "/cerrarSesion")
+    public void deslogeo() {
+
+    }
+
     @PostMapping(value = "/olvidoContraseña")
     public void olvidoContraseña(@RequestBody DTOUsuario dtoUsuario) {
         Usuario usuario = convertToEntity(dtoUsuario);
