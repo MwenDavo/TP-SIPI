@@ -31,10 +31,15 @@ public class ConfiguracionSeguridad{
         http.authorizeHttpRequests(
                         (authz) -> authz.anyRequest().authenticated())
                 .addFilterBefore(jwtAuth(), UsernamePasswordAuthenticationFilter.class)
-                .csrf(AbstractHttpConfigurer::disable)
+                //.csrf(AbstractHttpConfigurer::disable)
         ;
         return http.build();
+    }/*
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+        http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().permitAll());
+        return http.build(); //TODO check seguridad
     }
+    */
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {

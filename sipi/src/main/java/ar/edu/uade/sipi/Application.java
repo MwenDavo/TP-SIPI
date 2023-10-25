@@ -20,4 +20,15 @@ public class Application implements CommandLineRunner{
     @Override
     public void run(String... args) throws Exception {
     }
+
+    //@Bean
+    /*public WebMvcConfigurer corsConfigurer(){
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry){
+                registry.addMapping("/getvaloresUsuario")
+                        .allowedOrigins("http://localhost:63342");
+            }
+        };
+    }*/
 }
