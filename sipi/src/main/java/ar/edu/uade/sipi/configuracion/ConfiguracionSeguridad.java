@@ -17,13 +17,14 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+
 import javax.crypto.SecretKey;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
-public class ConfiguracionSeguridad {
+public class ConfiguracionSeguridad{
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

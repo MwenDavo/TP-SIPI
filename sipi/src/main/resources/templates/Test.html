@@ -256,34 +256,45 @@
                 console.log(elem);
                 elem.addEventListener("input", rangeValue);
             } else {
+                enviarRespuestas(respuestas);
                 alert('¡Test completado! Encontraras tus resultados en la sección de Enciclopedia');
-                fetch('http://localhost:8080/test/getvaloresUsuario', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json; charset=UTF-8',
-                        'Access-Control-Allow-Origin': '*'
-                    },
-                    body: JSON.stringify(respuestas),
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            console.log("Hola");
-                            return response.text();
-                        } else {
-                            console.log("Get a Job");
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
             }
         }
+
+
+
 
         elem.addEventListener("input", rangeValue);
         console.log("hola");
 
+
     </script>
-
-
+    <script>
+        function enviarRespuestas(ans) {
+            fetch('http://localhost:8080/test/getvaloresUsuario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
+                },
+                body: JSON.stringify(ans)
+            }
+            ).then(response => { if(response.ok){
+            console.log("Respuesta recibida!");
+            return response.text();
+                    }})
+                .then(data => {
+                    console.log('Respuesta del servidor:', data);
+                })
+                .catch(error => {
+                    console.error('Error al enviar la solicitud:', error);
+                });
+        }
+    </script>
     <script src="funciones/checkToken.js"></script>
+    <script src="funciones/corsFuncion.js"></script>
 </body>
 
 </html>
