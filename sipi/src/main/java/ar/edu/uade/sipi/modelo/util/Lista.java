@@ -2,6 +2,7 @@ package ar.edu.uade.sipi.modelo.util;
 
 import java.util.ArrayList;
 
+
 public class Lista {
     private ArrayList<Integer> valoresUsuario;
 

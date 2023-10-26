@@ -186,37 +186,37 @@
                     <h3>Pregunta 1</h3>
                     <p>¿Qué tanto te cuesta establecer tus tiempos de estudio y respetarlos?</p>
                     <div class="value" id="valueDiv1">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5" id="input1">
+                    <label for="input1"></label><input type="range" min="1" max="10" step="1" value="5" id="input1">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question2" class="question">
                     <h3>¿Cuánta dificultad encontras para recordar los términos generales de la información que debes estudiar?</h3>
                     <div class="value" id="valueDiv2">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5" id="input2">
+                    <label for="input2"></label><input type="range" min="1" max="10" step="1" value="5" id="input2">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question3" class="question">
                     <h3>¿Cuánta dificultad encontras en recordar detalles pequeños, pero importantes, del material que estas estudiando?</h3>
                     <div class="value" id="valueDiv3">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5" id="input3">
+                    <label for="input3"></label><input type="range" min="1" max="10" step="1" value="5" id="input3">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question4" class="question">
                     <h3>¿Cuánta dificultad encontras al momento de sintetizar la informacion que debes estudiar?</h3>
                     <div class="value" id="valueDiv4">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5" id="input4">
+                    <label for="input4"></label><input type="range" min="1" max="10" step="1" value="5" id="input4">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question5" class="question">
                     <h3>¿Preferís estudiar leyendo varias veces un resumen? Siendo uno no me gusta para nada y siendo 10 tu forma favorita de estudiar.</h3>
                     <div class="value" id="valueDiv5">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5" id="input5">
+                    <label for="input5"></label><input type="range" min="1" max="10" step="1" value="5" id="input5">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question6" class="question">
                     <h3>Pregunta 6</h3>
                     <div class="value" id="valueDiv6">5</div>
-                    <input type="range" min="1" max="10" step="1" value="5" id="input6">
+                    <label for="input6"></label><input type="range" min="1" max="10" step="1" value="5" id="input6">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
             </div>
@@ -225,7 +225,6 @@
 
     <script>
         var currentQuestion = 0;
-
         var respuestas = [];
         var elem = document.querySelector('input[type="range"]');
 
@@ -270,21 +269,24 @@
 
     </script>
     <script>
+        const url = 'http://localhost:8080/test/resultados';
         function enviarRespuestas(ans) {
-            fetch('http://localhost:8080/test/getvaloresUsuario', {
+            fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset=UTF-8',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
                 },
-                body: JSON.stringify(ans)
-            }
-            ).then(response => { if(response.ok){
-            console.log("Respuesta recibida!");
-            return response.text();
-                    }})
+                body: JSON.stringify(ans),
+            })
+                .then(response => {
+                    console.log("OK?");
+                    if(response.ok){
+                        console.log("Respuesta recibida!");
+                        console.log(response.text);
+                        return response.text();
+                    }
+                })
                 .then(data => {
                     console.log('Respuesta del servidor:', data);
                 })

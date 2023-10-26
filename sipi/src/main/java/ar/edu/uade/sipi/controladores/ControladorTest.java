@@ -16,35 +16,16 @@ import org.springframework.web.servlet.DispatcherServlet;
 import java.util.ArrayList;
 //.
 @RestController
-@CrossOrigin("http://localhost:63342")
 @RequestMapping("/test")
 public class ControladorTest {
 
     @Autowired
     private IServicioTest servicioTest;
 
-    @PostMapping(value = "/getvaloresUsuario")
-    public ResponseEntity<String> getValoresUsuario(@RequestBody Lista valoresUsuario) {
+    @PostMapping ("/resultados")
+    public ResponseEntity<?> resultados(@RequestBody Lista valoresUsuario) {
+        System.out.println(valoresUsuario.getValoresUsuario());
         String metodologiaRecomendada = servicioTest.guardarValoresUsuario(valoresUsuario.getValoresUsuario());
         return new ResponseEntity<>(metodologiaRecomendada, HttpStatus.OK);
-    }
-    @Bean
-    public DispatcherServletBeanPostProcessor dispatcherServletBeanPostProcessor() {
-        return new DispatcherServletBeanPostProcessor();
-    }
-
-    public static class DispatcherServletBeanPostProcessor implements BeanPostProcessor {
-        @Override
-        public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-            if (bean instanceof DispatcherServlet) {
-                ((DispatcherServlet) bean).setDispatchOptionsRequest(true);
-            }
-            return bean;
-        }
-
-        @Override
-        public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-            return bean;
-        }
     }
 }
