@@ -225,7 +225,7 @@
 
     <script>
         var currentQuestion = 0;
-        var respuestas = [];
+        var respuestas = "";
         var elem = document.querySelector('input[type="range"]');
 
 
@@ -239,8 +239,11 @@
 
         function nextQuestion() { //todo EL CORS ORIGIN SALTA DANDO ERROR PORQUE EL FETCH ES LLAMADO DENTRO DE OTRO SCRIPT. HAY ALGUNA MANERA DE SACAR LOS DATOS DE NEXT QUESTION Y USARLOS EN OTRO SCRIPT CON EL FETCH?
             const currentQuestionElement = document.getElementById(`question${currentQuestion}`);
-            if (currentQuestion != 0) {
-                respuestas.push(document.getElementById(`valueDiv${currentQuestion}`).innerText);
+            if (currentQuestion !== 0) {
+                /*respuestas.push(parseInt(document.getElementById(`valueDiv${currentQuestion}`).innerText));
+
+                 */
+                respuestas+=document.getElementById(`valueDiv${currentQuestion}`).innerText;
                 console.log(respuestas);
             }
 
@@ -269,8 +272,10 @@
 
     </script>
     <script>
-        const url = 'http://localhost:8080/test/resultados';
+
         function enviarRespuestas(ans) {
+            const url = 'http://localhost:8080/test/resultados';
+            console.log(ans)
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -280,7 +285,6 @@
                 body: JSON.stringify(ans),
             })
                 .then(response => {
-                    console.log("OK?");
                     if(response.ok){
                         console.log("Respuesta recibida!");
                         console.log(response.text);
