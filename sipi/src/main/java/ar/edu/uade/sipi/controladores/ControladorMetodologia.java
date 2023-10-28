@@ -20,8 +20,6 @@ import java.util.List;
 public class ControladorMetodologia {
     @Autowired
     private IServicioMetodologia servicioMetodologia;
-    @Autowired
-    private IServicioAutenticacion servicioAutenticacion;
 
     @GetMapping(value = "/get/parameters")
     public ResponseEntity<DTOMetodologia> get(@RequestParam("nombre") String nombre) {
@@ -34,7 +32,7 @@ public class ControladorMetodologia {
 
     @GetMapping(value = "/getRecomendada")
     public ResponseEntity<?> getRecomendada(@RequestBody String nombreUsaurio){
-        Usuario user = servicioAutenticacion.devolverUsuario(nombreUsaurio);
+        Usuario user = servicioMetodologia.devolverUsuario(nombreUsaurio);
         return new ResponseEntity<>(user.getMetodologiaRecomendada(), HttpStatus.OK);
     }
 

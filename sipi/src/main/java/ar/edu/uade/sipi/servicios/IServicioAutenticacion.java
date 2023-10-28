@@ -6,8 +6,6 @@ public interface IServicioAutenticacion {
 
     void registro(Usuario usuario);
 
-    public Usuario devolverUsuario(String nombreUsuario);
-
     Usuario inicioSesion(String nombreUsuario, String contraseña);
 
     void generarContraseñaProvisoria(String correoElectronico);
