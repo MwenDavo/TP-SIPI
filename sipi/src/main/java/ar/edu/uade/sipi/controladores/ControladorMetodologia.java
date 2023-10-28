@@ -30,7 +30,7 @@ public class ControladorMetodologia {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping(value = "/getRecomendada")
+    @PostMapping(value = "/getRecomendada")
     public ResponseEntity<?> getRecomendada(@RequestBody String nombreUsaurio){
         Usuario user = servicioMetodologia.devolverUsuario(nombreUsaurio);
         return new ResponseEntity<>(user.getMetodologiaRecomendada(), HttpStatus.OK);

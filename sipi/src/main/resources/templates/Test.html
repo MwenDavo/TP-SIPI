@@ -224,6 +224,34 @@
     </main>
 
     <script>
+        var urlP1 = 'http://localhost:8080/metodologias/getRecomendada';
+        fetch(urlP1, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            body: JSON.stringify(localStorage.nombreUsuario),
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Respuesta recibida!");
+                    console.log(response.text);
+
+                    return response.text();
+                }
+            })
+            .then(data => {
+                console.log('Respuesta del servidor:', data);
+                localStorage.setItem('metodolgia', data);
+            })
+            .catch(error => {
+                console.error('Error al enviar la solicitud:', error);
+            });
+
+
+    </script>
+    <script>
         var currentQuestion = 0;
         var respuestas = "";
         var elem = document.querySelector('input[type="range"]');
