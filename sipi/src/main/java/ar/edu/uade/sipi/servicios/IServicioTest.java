@@ -6,5 +6,5 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface IServicioTest {
-    String guardarValoresUsuario(List<Integer> valoresUsuario);
+    String guardarValoresUsuario(String nombreUsuario,List<Integer> valoresUsuario);
 }

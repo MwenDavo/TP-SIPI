@@ -54,6 +54,11 @@ public class ServicioAutenticacion implements IServicioAutenticacion {
         return null;
     }
 
+    @Override
+    public Usuario devolverUsuario(String nombreUsuario){
+        return repositorioUsuario.getByNombreUsuario(nombreUsuario);
+    }
+
     private boolean checkPassword(String ingresada, String registrada) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.matches(ingresada, registrada);

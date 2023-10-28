@@ -4,7 +4,7 @@ import ar.edu.uade.sipi.modelo.entidades.Usuario;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-public interface IRepositorioUsuario extends MongoRepository<Usuario, Long> {
+public interface IRepositorioUsuario extends MongoRepository<Usuario, Long>{
 
     @Query("{nombreUsuario:'?0'}")
     Usuario getByNombreUsuario(String nombreUsuario);

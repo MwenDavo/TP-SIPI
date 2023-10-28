@@ -273,21 +273,28 @@
     </script>
     <script>
 
+
         function enviarRespuestas(ans) {
             const url = 'http://localhost:8080/test/resultados';
-            console.log(ans)
+            const data = {
+                nombreUsuario:localStorage.getItem('nombreUsuario'),
+                valoresUsuario:ans
+            };
+            /*console.log(ans);
+            console.log(JSON.stringify(ans));*/
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset=UTF-8',
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 },
-                body: JSON.stringify(ans),
+                body: JSON.stringify(data),
             })
                 .then(response => {
                     if(response.ok){
                         console.log("Respuesta recibida!");
                         console.log(response.text);
+
                         return response.text();
                     }
                 })

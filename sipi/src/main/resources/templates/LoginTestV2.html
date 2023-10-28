@@ -204,19 +204,17 @@
             })
                 .then(response => {
                     if (response.ok) {
-                        console.log("Hola");
-                        return response.text();
+                        return response.json();
                     } else {
                         document.getElementById("errorP").innerHTML = "No se ha encontrado tu cuenta. ¡Por favor verifica tus datos!";
                         throw new Error('Error al iniciar sesión');
                     }
                 })
                 .then(json => {
-                    console.log(json);
-                    localStorage.setItem("nombreUsuario", json.nombreUsuario);
-                    localStorage.setItem("correoElectronico", json.correoElectronico);
-                    localStorage.setItem("token", json.token);
-                    //window.location.replace("Main.html");
+                    localStorage.setItem('nombreUsuario', json.nombreUsuario);
+                    localStorage.setItem('correoElectronico', json.correoElectronico);
+                    localStorage.setItem('token', json.token);
+                    window.location.replace("Main.html");
                 })
                 .catch(error => {
                     console.error('Error:', error.message);

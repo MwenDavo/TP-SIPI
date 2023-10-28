@@ -2,8 +2,10 @@ package ar.edu.uade.sipi.controladores;
 
 import ar.edu.uade.sipi.modelo.entidades.Metodologia;
 import ar.edu.uade.sipi.modelo.entidades.Reseña;
+import ar.edu.uade.sipi.modelo.entidades.Usuario;
 import ar.edu.uade.sipi.modelo.entidades.dtos.DTOMetodologia;
 import ar.edu.uade.sipi.modelo.entidades.dtos.DTOReseña;
+import ar.edu.uade.sipi.servicios.IServicioAutenticacion;
 import ar.edu.uade.sipi.servicios.IServicioMetodologia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,8 @@ import java.util.List;
 public class ControladorMetodologia {
     @Autowired
     private IServicioMetodologia servicioMetodologia;
+    @Autowired
+    private IServicioAutenticacion servicioAutenticacion;
 
     @GetMapping(value = "/get/parameters")
     public ResponseEntity<DTOMetodologia> get(@RequestParam("nombre") String nombre) {
@@ -26,6 +30,12 @@ public class ControladorMetodologia {
             return new ResponseEntity<>(convertToDTO(metodologia), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping(value = "/getRecomendada")
+    public ResponseEntity<?> getRecomendada(@RequestBody String nombreUsaurio){
+        Usuario user = servicioAutenticacion.devolverUsuario(nombreUsaurio);
+        return new ResponseEntity<>(user.getMetodologiaRecomendada(), HttpStatus.OK);
     }
 
     @PutMapping (value = "/put/reseñas")

@@ -1,5 +1,7 @@
 package ar.edu.uade.sipi.controladores;
 
+import ar.edu.uade.sipi.modelo.util.ResultadoUsuario;
+import ar.edu.uade.sipi.servicios.IServicioAutenticacion;
 import ar.edu.uade.sipi.servicios.IServicioTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +19,12 @@ public class ControladorTest {
     @Autowired
     private IServicioTest servicioTest;
 
+    @Autowired
+    private IServicioAutenticacion servicioAutenticacion;
+
     @PostMapping ("/resultados")
-    public ResponseEntity<?> resultados(@RequestBody String valoresUsuario) {
+    public ResponseEntity<?> resultados(@RequestBody ResultadoUsuario resultadoUsuario) {
+        String valoresUsuario = resultadoUsuario.getValoresUsuario();
         System.out.println(valoresUsuario);
         List<Integer> lista = new ArrayList<>();
         for (int i = 0; i < valoresUsuario.length(); i++) {
@@ -32,7 +38,7 @@ public class ControladorTest {
             }
         }
         System.out.println(lista);
-        String metodologiaRecomendada = servicioTest.guardarValoresUsuario(lista);
+        String metodologiaRecomendada = servicioTest.guardarValoresUsuario(resultadoUsuario.getNombreUsuario(),lista);
         return new ResponseEntity<>(metodologiaRecomendada, HttpStatus.OK);
     }
 
