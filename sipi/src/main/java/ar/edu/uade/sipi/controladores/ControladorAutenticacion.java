@@ -6,7 +6,10 @@ import ar.edu.uade.sipi.servicios.IServicioAutenticacion;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.Json;
 import com.google.api.client.json.gson.GsonFactory;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/autenticacion")
@@ -49,7 +50,21 @@ public class ControladorAutenticacion {
                         .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME_IN_HOURS * 60 * 60 * 1000))
                         .signWith(secretKey, SignatureAlgorithm.HS256)
                         .compact();
-                return new ResponseEntity<>(token, HttpStatus.OK);
+
+                Usuario user = servicioAutenticacion.inicioSesion(usuario.getNombreUsuario(), usuario.getContraseña());
+                Gson gson = new Gson();
+                Map<String, Object> usuario_token = new HashMap<>();
+                usuario_token.put("nombreUsuario",user.getNombreUsuario());
+                usuario_token.put("correoElectronico",user.getCorreoElectronico());
+                usuario_token.put("token",token);
+                String json= gson.toJson(usuario_token);
+
+                /*JsonObject json = new JsonObject();
+                json.addProperty("nombreUsuario",user.getNombreUsuario());
+                json.addProperty("correoElectronico",user.getCorreoElectronico());
+                json.addProperty("token",token);*/
+
+                return new ResponseEntity<>(json, HttpStatus.OK);
             }
         }
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

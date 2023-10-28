@@ -211,9 +211,12 @@
                         throw new Error('Error al iniciar sesión');
                     }
                 })
-                .then(token => {
-                    localStorage.setItem('token', token);
-                    window.location.replace("Main.html");
+                .then(json => {
+                    console.log(json);
+                    localStorage.setItem("nombreUsuario", json.nombreUsuario);
+                    localStorage.setItem("correoElectronico", json.correoElectronico);
+                    localStorage.setItem("token", json.token);
+                    //window.location.replace("Main.html");
                 })
                 .catch(error => {
                     console.error('Error:', error.message);
