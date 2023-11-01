@@ -14,5 +14,5 @@ public interface IServicioMetodologia {
 
     void updateMetodologia(Metodologia metodologia);
 
-    Usuario devolverUsuario(String nombreUsaurio);
+    Usuario devolverUsuario(String nombreUsuario);
 }

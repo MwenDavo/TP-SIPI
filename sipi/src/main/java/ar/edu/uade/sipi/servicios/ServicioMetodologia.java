@@ -33,7 +33,7 @@ public class ServicioMetodologia implements IServicioMetodologia {
     }
 
     @Override
-    public Usuario devolverUsuario(String nombreUsaurio) {
-        return repositorioUsuario.getByNombreUsuario(nombreUsaurio);
+    public Usuario devolverUsuario(String nombreUsuario) {
+        return repositorioUsuario.getByNombreUsuario(nombreUsuario);
     }
 }
