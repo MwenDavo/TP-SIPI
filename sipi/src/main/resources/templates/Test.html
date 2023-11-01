@@ -152,6 +152,41 @@
         input[type="range"]::-webkit-slider-thumb:active {
             transform: scale(1.6);
         }
+
+        .message-container {
+            background-color: #f1c40f;
+            color: #fff;
+            padding: 1em;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 1em;
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .metodologia {
+            color: #3498db;
+            font-size: 2em;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .question {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 1em;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .mark {
+            background-color: yellow;
+            color: black;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -190,13 +225,15 @@
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question2" class="question">
-                    <h3>¿Cuánta dificultad encontras para recordar los términos generales de la información que debes estudiar?</h3>
+                    <h3>¿Cuánta dificultad encontras para recordar los términos generales de la información que debes
+                        estudiar?</h3>
                     <div class="value" id="valueDiv2">5</div>
                     <label for="input2"></label><input type="range" min="1" max="10" step="1" value="5" id="input2">
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question3" class="question">
-                    <h3>¿Cuánta dificultad encontras en recordar detalles pequeños, pero importantes, del material que estas estudiando?</h3>
+                    <h3>¿Cuánta dificultad encontras en recordar detalles pequeños, pero importantes, del material que
+                        estas estudiando?</h3>
                     <div class="value" id="valueDiv3">5</div>
                     <label for="input3"></label><input type="range" min="1" max="10" step="1" value="5" id="input3">
                     <button onclick="nextQuestion()">Siguiente</button>
@@ -208,7 +245,8 @@
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
                 <div id="question5" class="question">
-                    <h3>¿Preferís estudiar leyendo varias veces un resumen? Siendo uno no me gusta para nada y siendo 10 tu forma favorita de estudiar.</h3>
+                    <h3>¿Preferís estudiar leyendo varias veces un resumen? Siendo uno no me gusta para nada y siendo 10
+                        tu forma favorita de estudiar.</h3>
                     <div class="value" id="valueDiv5">5</div>
                     <label for="input5"></label><input type="range" min="1" max="10" step="1" value="5" id="input5">
                     <button onclick="nextQuestion()">Siguiente</button>
@@ -220,10 +258,17 @@
                     <button onclick="nextQuestion()">Siguiente</button>
                 </div>
             </div>
+            <div id="finishAnnouncement" class="question"></div>
         </div>
     </main>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (localStorage.getItem('metodologia') !== undefined) {
+                showMessage('Ya tienes una metodologia guardada. Aun asi, ¡puedes rehacer el test si asi deseas!')
+            }
+        });
+
         var currentQuestion = 0;
         var respuestas = "";
         var elem = document.querySelector('input[type="range"]');
@@ -237,13 +282,10 @@
             target.innerText = newValue;
         }
 
-        function nextQuestion() { //todo EL CORS ORIGIN SALTA DANDO ERROR PORQUE EL FETCH ES LLAMADO DENTRO DE OTRO SCRIPT. HAY ALGUNA MANERA DE SACAR LOS DATOS DE NEXT QUESTION Y USARLOS EN OTRO SCRIPT CON EL FETCH?
+        function nextQuestion() {
             const currentQuestionElement = document.getElementById(`question${currentQuestion}`);
             if (currentQuestion !== 0) {
-                /*respuestas.push(parseInt(document.getElementById(`valueDiv${currentQuestion}`).innerText));
-
-                 */
-                respuestas+=document.getElementById(`valueDiv${currentQuestion}`).innerText;
+                respuestas += document.getElementById(`valueDiv${currentQuestion}`).innerText;
                 console.log(respuestas);
             }
 
@@ -265,10 +307,15 @@
 
 
 
-
         elem.addEventListener("input", rangeValue);
         console.log("hola");
 
+        function showMessage(message) {
+            var messageContainer = document.createElement('div');
+            messageContainer.innerHTML = `<p>${message}</p>`;
+            messageContainer.classList.add('message-container'); // Add the class
+            document.body.insertBefore(messageContainer, document.body.firstChild);
+        }
 
     </script>
     <script>
@@ -277,8 +324,8 @@
         function enviarRespuestas(ans) {
             const url = 'http://localhost:8080/test/resultados';
             const data = {
-                nombreUsuario:localStorage.getItem('nombreUsuario'),
-                valoresUsuario:ans
+                nombreUsuario: localStorage.getItem('nombreUsuario'),
+                valoresUsuario: ans
             };
             /*console.log(ans);
             console.log(JSON.stringify(ans));*/
@@ -291,21 +338,31 @@
                 body: JSON.stringify(data),
             })
                 .then(response => {
-                    if(response.ok){
+                    if (response.ok) {
                         console.log("Respuesta recibida!");
                         console.log(response.text);
-
                         return response.text();
                     }
                 })
                 .then(data => {
-                    console.log('Respuesta del servidor:', data);
                     localStorage.setItem('metodologia', data);
-                    console.log(localStorage.metodologia);
+                    mostrarMetodologia(data);
                 })
                 .catch(error => {
                     console.error('Error al enviar la solicitud:', error);
                 });
+        }
+        function mostrarMetodologia(metodologia) {
+            var finishAnnouncement = document.getElementById('finishAnnouncement');
+            finishAnnouncement.innerHTML = `<h3>¡Test completado!</h3><p class="metodologia">${metodologia}</p>
+            <p>A base de los valores que diste en Test, fue determinado que el metodo de estudio de <mark>${metodologia}</mark> es el que mejor se acople a tus necesidades.</p>
+            <p>Si deseas acceder al mismo o a los demas metodos de estudio, por favor accede a la enciclopedia con el boton que esta debajo.</p>
+                                     <button onclick="redirectToEnciclopedia()">¡Ir a la Enciclopedia!</button>`;
+            finishAnnouncement.style.display = 'block';
+        }
+
+        function redirectToEnciclopedia() {
+            window.location.href = 'EnciclopediaV2.html';
         }
     </script>
     <script src="funciones/checkToken.js"></script>

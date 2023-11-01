@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Enciclopedia de Textos</title>
     <script src="funciones/logOut.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem('metodologia')) {
+                var selMetodologia = localStorage.getItem("metodologia");
+                console.log(selMetodologia);
+                var links = document.querySelectorAll('.encyclopedia-item');
+                console.log(links);
+                links.forEach(function (link) {
+                    if (link.getAttribute('id') === selMetodologia) {
+                        link.classList.add('highlighted');
+                    }
+                });
+            }
+        });
+    </script>
 
     <!-- Añadir Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -144,14 +159,20 @@
             font-size: 2em;
             margin-right: 0.5em;
         }
+
+        .highlighted {
+            background-color: black;
+        }
     </style>
+
 </head>
 
 <body>
     <header>
         <nav>
             <div>
-                <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+                <a href="Main.html"><img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
+                        height="53,75px">
                     <i class="fas fa-arrow-left back-icon" style="padding-left: 15px;"></i>
                     <p>Volver al Menu Principal</p>
                 </a>
@@ -165,7 +186,7 @@
         </nav>
     </header>
     <div class="encyclopedia-container">
-        <div class="encyclopedia-item">
+        <div class="encyclopedia-item" id="Mapa Mental">
             <img src="Fotos/mapaMental.webp" alt="Mapas Mentales">
             <div class="encyclopedia-item-content">
                 <i class="fas fa-map"></i>
@@ -177,7 +198,7 @@
                 <a href="Docs Metodos/MapasMentales.html">Leer más!</a>
             </div>
         </div>
-        <div class="encyclopedia-item">
+        <div class="encyclopedia-item" id="Pomodoro">
             <img src="Fotos/Pomodoro.jpeg" alt="Texto 2">
             <div class="encyclopedia-item-content">
                 <i class="fas fa-brain"></i>
@@ -188,7 +209,7 @@
                 <a href="Docs Metodos/Pomodoro.html">Leer más!</a>
             </div>
         </div>
-        <div class="encyclopedia-item">
+        <div class="encyclopedia-item" id="Cornell">
             <img src="Fotos/CornellImg.png" alt="Texto 2">
             <div class="encyclopedia-item-content">
                 <i class="fas fa-file-alt"></i>
@@ -199,7 +220,7 @@
             </div>
         </div>
     </div>
-    <script src="funciones/checkToken.js"/>
+    <script src="funciones/checkToken.js"></script>
 </body>
 
 </html>
