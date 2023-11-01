@@ -30,13 +30,6 @@ public class ControladorMetodologia {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping(value = "/getRecomendada")
-    public ResponseEntity<?> getRecomendada(@RequestBody String nombreUsuario){
-        Usuario user = servicioMetodologia.devolverUsuario(nombreUsuario);
-        System.out.println(servicioMetodologia.devolverUsuario(nombreUsuario).getNombreUsuario());
-        return new ResponseEntity<>(user.getMetodologiaRecomendada(), HttpStatus.OK);
-    }
-
     @PutMapping (value = "/put/reseñas")
     public void updateMetodo(@RequestBody DTOMetodologia dtoMetodologia) {
         Metodologia metodologia = convertToEntity(dtoMetodologia);

@@ -14,8 +14,6 @@ import java.util.List;
 public class ServicioMetodologia implements IServicioMetodologia {
     @Autowired
     private IRepositorioMetodologia repositorioMetodologia;
-    @Autowired
-    private IRepositorioUsuario repositorioUsuario;
 
     @Override
     public Metodologia getByNombre(String nombre) {
@@ -32,8 +30,4 @@ public class ServicioMetodologia implements IServicioMetodologia {
         repositorioMetodologia.save(metodologia);
     }
 
-    @Override
-    public Usuario devolverUsuario(String nombreUsuario) {
-        return repositorioUsuario.getByNombreUsuario(nombreUsuario);
-    }
 }

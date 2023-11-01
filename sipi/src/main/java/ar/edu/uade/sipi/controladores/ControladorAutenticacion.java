@@ -57,6 +57,7 @@ public class ControladorAutenticacion {
                 usuario_token.put("nombreUsuario",user.getNombreUsuario());
                 usuario_token.put("correoElectronico",user.getCorreoElectronico());
                 usuario_token.put("token",token);
+                usuario_token.put("metodologia", user.getMetodologiaRecomendada());
                 String json= gson.toJson(usuario_token);
 
                 /*JsonObject json = new JsonObject();
