@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>StudyMentor</title>
+
+    <!-- Añadir Font Awesome -->
+    <link rel=" icon" type="image/png" href="Fotos/SIP_Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+        body {
+            background-color: #fff;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            /* Eliminar el margen predeterminado del body */
+            background-image: radial-gradient(hsl(170, 81%, 73%) 2px,
+            transparent 2px);
+            background-size: 40px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+
+
+        nav {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.5em;
+            display: flex;
+            justify-content: space-between;
+
+            /* Distribuir elementos a los extremos */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            /* Centrar verticalmente los elementos de la barra de navegación */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            display: flex;
+            /* Para alinear el ícono y el texto verticalmente */
+            align-items: center;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.5s ease;
+        }
+
+        nav a:hover {
+            background-color: #297fb8;
+        }
+
+        /* Separar Perfil y Opciones y moverlos a la derecha */
+
+        main {
+            text-align: center;
+            /* Centrar el contenido principal */
+            padding: 1em;
+        }
+
+        /* Estilo para los íconos de las secciones */
+        .section-icon {
+            font-size: 2em;
+            margin-right: 0.5em;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            bottom: 0;
+            margin-top: auto;
+        }
+
+        #left {
+            text-align: left;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            padding-left: 10px;
+        }
+
+        .cta {
+            display: flex;
+            padding: 10px 45px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background: #3498db;
+            transition: 1s;
+            box-shadow: 6px 6px 0 black;
+            transform: skewX(-15deg);
+        }
+
+        @media screen and (max-width: 2048px) {
+            .cta {
+                font-size: 30px;
+            }
+        }
+
+        @media screen and (max-width: 2047px) {
+            .cta {
+                font-size: 28px;
+            }
+
+            body {
+                overflow-x: hidden;
+                /* Ocultar desplazamiento horizontal */
+                overflow-y: hidden;
+                /* Ocultar desplazamiento vertical */
+            }
+        }
+
+        @media screen and (max-width: 1900px) {
+            .cta {
+                font-size: 16px;
+            }
+
+            #botonesSvg {
+                padding-top: 40px;
+            }
+
+            body {
+                overflow-y: auto;
+                overflow-x: auto;
+            }
+        }
+
+        @media screen and (max-width: 1350px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 1140px) {
+            .cta {
+                font-size: 20px;
+            }
+
+            #botonesSvg {
+                flex-direction: column;
+            }
+
+            .wrapper {
+                padding-top: 20px;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            .cta {
+                font-size: 18px;
+            }
+        }
+
+        .cta:focus {
+            outline: none;
+        }
+
+        .cta:hover {
+            transition: 0.5s;
+            box-shadow: 10px 10px 0 #FBC638;
+        }
+
+        .cta span:nth-child(2) {
+            transition: 0.5s;
+            margin-right: 0px;
+        }
+
+        .cta:hover span:nth-child(2) {
+            transition: 0.5s;
+            margin-right: 45px;
+        }
+
+        span:nth-child(2) {
+            width: 20px;
+            margin-left: 30px;
+            position: relative;
+            top: 12%;
+        }
+
+        /**************SVG****************/
+
+        path.one {
+            transition: 0.4s;
+            transform: translateX(-60%);
+        }
+
+        path.two {
+            transition: 0.5s;
+            transform: translateX(-30%);
+        }
+
+        .cta:hover path.three {
+            animation: color_anim 1s infinite 0.2s;
+        }
+
+        .cta:hover path.one {
+            transform: translateX(0%);
+            animation: color_anim 1s infinite 0.6s;
+        }
+
+        .cta:hover path.two {
+            transform: translateX(0%);
+            animation: color_anim 1s infinite 0.4s;
+        }
+
+        /* SVG animations */
+
+        @keyframes color_anim {
+            0% {
+                fill: white;
+            }
+
+            50% {
+                fill: #FBC638;
+            }
+
+            100% {
+                fill: white;
+            }
+        }
+
+        .gridcontainer {
+            width: 720px;
+            margin: 30px auto;
+        }
+
+        .grid_3 {
+            display: inline;
+            float: left;
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 220px;
+        }
+
+        .grid_9 {
+            display: inline;
+            float: left;
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 700px;
+        }
+
+
+        nav #options .section-icon {
+            transition: transform 0.2s ease;
+            /* Agregar una transición suave al ícono */
+        }
+
+        nav #options:hover .section-icon {
+            transform: rotate(120deg);
+            /* Rotar solo el ícono de Opciones al hacer hover */
+        }
+
+        nav #logout:hover {
+            background-color: #ff0000;
+            /* Cambiar el fondo a rojo al hacer hover */
+            transition: background-color 0.3s ease;
+            /* Agregar una transición suave */
+        }
+
+        .headerTop {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /*-------*/
+        /* --- Variables --- */
+        /* -------- Mixins -------- */
+        /* --- General styles --- */
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+        }
+
+        code {
+            font-family: monospace;
+            font-size: 1em;
+        }
+
+        .secondary-title {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 1em 0;
+        }
+
+        /* ---- Navigation ------ */
+        .main-nav {
+            display: flex;
+            flex-flow: column wrap;
+            max-width: 500px;
+            flex: 1 1 250px;
+            padding: 8px;
+            margin-left: 750px;
+        }
+
+        .main-header {
+            text-align: center;
+            background-color: #00bcd4;
+            border-bottom: 8px solid #757575;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            padding: 1em;
+            margin-top: 2em;
+            background-color: #00bcd4;
+        }
+
+        .nav-links li {
+            margin: 1.5em;
+            text-align: center;
+            padding: 0.3em;
+            background-color: #607d8b;
+            border: 4px solid #b2ebf2;
+            max-width: 400px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.3em;
+            width: 100%;
+            display: block;
+        }
+
+        .nav-link:focus,
+        .nav-link:hover {
+            background-color: #00bcd4;
+        }
+
+        .star-circle {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: center;
+            background-color: #607d8b;
+            width: 80px;
+            height: 80px;
+            font-size: 2em;
+            line-height: 80px;
+            text-align: center;
+            color: #b2ebf2;
+            border-radius: 50%;
+            border: 8px solid #fff;
+            box-shadow: 0 0 0 8px #757575;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* --- Card --- */
+        .doc-card {
+            display: flex;
+            flex-flow: column wrap;
+            max-width: 2000px;
+            padding: 0.5em;
+            margin: 2em 2em;
+            flex: 1 0 250px;
+        }
+
+        .doc-card__content {
+            background-color: #b2ebf2;
+            padding: 1em;
+            margin-top: 1em;
+        }
+
+        .doc-card__inner {
+            padding: 0.5em;
+            background-color: #fff;
+        }
+
+        .doc-card__header {
+            display: flex;
+            flex-flow: row nowrap;
+            width: 100%;
+            background-color: #00bcd4;
+            font-size: 2em;
+            border-top: 8px solid #757575;
+        }
+
+        .doc-card__title {
+            width: 70%;
+            text-align: center;
+        }
+
+        .doc-card__num {
+            background-color: #0097a7;
+            width: 30%;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .doc-card__num span {
+            border-radius: 50%;
+            display: inline-block;
+            width: 2em;
+            height: 2em;
+            color: #fff;
+            line-height: 2em;
+            background-color: #607d8b;
+            border: 4px solid #fff;
+        }
+
+        .number-1::before {
+            content: "1";
+        }
+
+        .number-2::before {
+            content: "2";
+        }
+
+        .number-3::before {
+            content: "3";
+        }
+
+        .number-4::before {
+            content: "4";
+        }
+
+        .number-5::before {
+            content: "5";
+        }
+
+        .number-6::before {
+            content: "6";
+        }
+
+        .number-7::before {
+            content: "7";
+        }
+
+        .doc-card__snippet,
+        code {
+            background-color: #d4d3d3;
+            border-radius: 10px;
+        }
+
+        .doc-card__snippet {
+            padding: 0.4em;
+            display: block;
+            margin: 1em 0;
+        }
+
+        .doc-card__footer {
+            margin-top: 1em;
+            background-color: #0097a7;
+            border-bottom: 8px solid #757575;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+        }
+
+        .outer-circle {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: center;
+            background-color: #607d8b;
+            width: 80px;
+            height: 80px;
+            font-size: 2em;
+            line-height: 80px;
+            text-align: center;
+            color: #b2ebf2;
+            border-radius: 50%;
+            border: 8px solid #fff;
+            transform: translateY(-50%);
+        }
+
+        .tags {
+            background-color: #b2ebf2;
+            display: inline-block;
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* --- Footer  --- */
+        footer {
+            min-width: 100%;
+        }
+
+        .main-footer {
+            align-items: center;
+            text-align: center;
+            background-color: #00bcd4;
+            padding: 1em;
+            border-top: 8px solid #757575;
+        }
+
+        .main-footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .main-footer a:visited {
+            color: #b2ebf2;
+        }
+
+        .main-footer a:focus,
+        .main-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Media Queries --- */
+        @media screen and (min-width: 750px) {
+            .doc-card:first-of-type {
+                margin-top: 0;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            /*
+            .doc-card {
+                max-width: 900px;
+            }*/
+        }
+
+        @media screen and (min-width: 1500px) {
+            body {
+                justify-content: flex-start;
+            }
+
+            /*
+            .main-nav {
+                margin-left: 4em;
+            }*/
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="headerTop">
+        <div id="left">
+            <a href="Main.html"><img src="Fotos/Logo_animado_sin_fondo.gif" alt="StudyMentor Logo" width="138,5px"
+                                     height="107,5px"></a>
+        </div>
+        <h1>¡Bienvenido a StudyMentor!</h1>
+        <div id="digital-clock"></div>
+    </div>
+
+</header>
+<nav>
+    <ul style="margin-left: 20px;margin-bottom: 20px;" id="botonesSvg">
+        <li>
+            <div class="wrapper" id="">
+                <a class="cta" href="Test.html">
+                        <span><i class=" fas fa-graduation-cap section-icon"></i>
+                            <div>Test de Estudio</div>
+                        </span>
+                    <span>
+                            <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path class="one"
+                                          d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                    <path class="two"
+                                          d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                    <path class="three"
+                                          d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                </g>
+                            </svg>
+                        </span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="wrapper">
+                <a class="cta" href="front/Enciclopedia.html">
+                        <span><i class="fas fa-book section-icon"></i>
+                            <div>Enciclopedia</div>
+                        </span>
+                    <span>
+                            <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path class="one"
+                                          d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                    <path class="two"
+                                          d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                    <path class="three"
+                                          d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                </g>
+                            </svg>
+                        </span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="wrapper">
+                <a class="cta" href="EnConstruccion.html">
+                        <span><i class=" fas fa-bell section-icon"></i>
+                            <div>Notificaciones</div>
+                        </span>
+                    <span>
+                            <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path class="one"
+                                          d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                    <path class="two"
+                                          d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                    <path class="three"
+                                          d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                </g>
+                            </svg>
+                        </span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="wrapper">
+                <a class="cta" href="EnConstruccion.html">
+                        <span><i class="fas fa-medal section-icon"></i>
+                            <div>Membresias</div>
+                        </span>
+                    <span>
+                            <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path class="one"
+                                          d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                    <path class="two"
+                                          d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                    <path class="three"
+                                          d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                                          fill="#FFFFFF"></path>
+                                </g>
+                            </svg>
+                        </span>
+                </a>
+            </div>
+        </li>
+    </ul>
+    </div>
+    <div style="padding-top: 20px;">
+        <a id="profile" href="Perfil.html"><i class="fas fa-user section-icon"></i> Perfil</a>
+        <a id="options" href="Ajustes.html"><i class="fas fa-cog section-icon"></i> Ajustes</a>
+        <a id="logout" href="LoginTestV2.html"><i class="fas fa-power-off section-icon"></i> Cerrar Sesión</a>
+    </div>
+</nav>
+</div>
+<main>
+
+    <body>
+    <nav id="navbar" class="main-nav">
+        <header class="main-header">
+            <div>
+                <h1>Docs Repetición Espaciada</h1>
+            </div>
+            <div class="star-wrapper"><span class="star">
+                            <div class="star-circle">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </span></div>
+
+
+        </header>
+        <ol class="nav-links">
+            <li><a href="#sec1" class="nav-link">¿Que es la Repetición Espaciada?</a></li>
+            <li><a href="#sec2" class="nav-link">¿Cómo se utiliza esta técnica?</a></li>
+            <li><a href="#sec3" class="nav-link">Ventajas de la Repetición Espaciada</a></li>
+            <li><a href="#sec4" class="nav-link">Desventajas de la Repetición Espaciada</a></li>
+        </ol>
+    </nav>
+    <main id="main-doc">
+
+        <!-- Doc num 1 -->
+        <div class="doc-card">
+            <section class="main-section " id="sec1">
+
+                <header>
+                    <div class="doc-card__header">
+                        <div class="doc-card__num"><span class="number-1"> </span></div>
+                        <div class="doc-card__title">
+                            <h2>¿Que es la Repetición Espaciada?</h2>
+                        </div>
+                    </div>
+                </header>
+                <div class="doc-card__content">
+                    <div class="doc-card__inner">
+                        <p class="doc-card__txt">
+                            La repetición espaciada es una técnica de aprendizaje memorístico que se basa en aprender un material determinado dejando pasar espacios de tiempo cada vez más largos entre cada sesión de entrenamiento. Esta forma de estudio surgió ya que, según Ebbinghaus y otros autores, si el aprendizaje se distribuye a lo largo del tiempo, se retiene mejor que si se realiza en una sola sesión de estudio.
+                            <br>
+                            Esta técnica permite un mayor mantenimiento del recuerdo, ya que cada vez que se practican los ejercicios de memorización se realiza un nuevo repaso de la informacion en la que se está trabajando. Es especialmente útil cuando se pretende aprender de memoria y de forma permanente grandes cantidades de información.
+                        </p>
+                    </div>
+                </div>
+                <footer>
+                    <div class="doc-card__footer">
+                        <div class="outer-circle">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </footer>
+
+            </section>
+        </div>
+        <!-- END  Doc num 1 -->
+
+        <!-- Doc num 2 -->
+        <div class="doc-card">
+            <section class="main-section" id="sec2">
+
+                <header>
+                    <div class="doc-card__header">
+                        <div class="doc-card__num"><span class="number-2"></span></div>
+                        <div class="doc-card__title">
+                            <h2>¿Cómo se utiliza esta técnica?</h2>
+                        </div>
+                    </div>
+                </header>
+                <div class="doc-card__content">
+                    <div class="doc-card__inner">
+                        <p class="doc-card__txt">
+                            La forma más común de aplicar esta técnica empieza por la división de la informacion en pequeños bloques de contenido <span class="tags">(Si se necesita estudiar conceptos más complejos, como momentos históricos, se deberá esquematizar o resumir la información)</span> .
+                            <br>
+                            Antes de empezar con las repeticiones, es necesario comprender la informacion que se desea memorizar; esto facilitara que se capten las relaciones entre los distintos elementos. Además, <span class="tags"  style="background-color: #FBC638">es conveniente dividir la informacion lo máximo posible y asi facilitar la retención de cada elemento.</span>                           <br>
+                            Los elementos que se quieren aprender deben estar distribuidos en algún tipo de soporte físico o virtual. Hay <span class="tags" style="background-color: #FBC638">dos tipos de tarjetas que son populares a la hora de memorizar</span>, las cuales son:
+
+                            <ul>
+                                <li>
+                                Tarjetas que dejan espacios en blanco que deben ser rellenados por el estudiante. (La adecuación funcional es un estándar de la _ de software).
+                                </li>
+                                <li>
+                                Tarjetas que de un lado tienen una pregunta y del otro la respuesta, tambien conocidas como flashcards (Podes leer más acerca de estas tarjetas aquí).
+                                </li>
+                            </ul>
+                            <br>
+                        Los elementos que se quieren aprender deben estar distribuidos en algún tipo de soporte físico o virtual. Hay dos tipos de tarjetas que son populares a la hora de memorizar, las cuales son:
+                        </p>
+                    </div>
+                </div>
+                <footer>
+                    <div class="doc-card__footer">
+                        <div class="outer-circle">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </footer>
+
+            </section>
+        </div>
+        <!-- End Doc num 2 -->
+
+        <!-- Doc num 3 -->
+        <div class="doc-card">
+
+            <section class="main-section" id="sec3">
+
+                <header>
+                    <div class="doc-card__header">
+                        <div class="doc-card__num"><span class="number-3"></span></div>
+                        <div class="doc-card__title">
+                            <h2><span class="tags" style="background-color: #4caf50"> Ventajas de la Repetición Espaciada</span></h2>
+                        </div>
+                    </div>
+                </header>
+                <div class="doc-card__content">
+                    <div class="doc-card__inner">
+                        <p class="doc-card__txt">
+                        <ul>
+                            <li>
+                            Aumenta la retención de informacion a largo plazo.
+                            </li>
+                            <li>
+                            Permite ahorrar tiempo al evitar repasos innecesarios.
+                            </li>
+                            <li>
+                            Refuerza el aprendizaje al realizar repasos periódicos.
+                            </li>
+                            <li>
+                            Reduce el estrés y la ansiedad al fomentar la organización.
+                            </li>
+                            <li>
+                            Se puede aplicar a cualquier asignatura.
+                            </li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <footer>
+                    <div class="doc-card__footer">
+                        <div class="outer-circle">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </footer>
+
+            </section>
+        </div>
+        <!-- End Doc num 3 -->
+
+
+        <div class="doc-card">
+            <section class="main-section" id="sec4">
+                <header>
+                    <div class="doc-card__header">
+                        <div class="doc-card__num"><span class="number-4"></span></div>
+                        <div class="doc-card__title">
+                            <h2><span class="tags" style="background-color: #c20a0a"> Desventajas de la Repetición Espaciada</span></h2>
+                        </div>
+                    </div>
+                </header>
+                <div class="doc-card__content">
+                    <div class="doc-card__inner">
+                        <p class="doc-card__txt">
+                            <ul>
+                                <li>
+                                    Si no se realizan sesiones de estudio que relacionen los bloques de contenido, puede se puede dificultar realizar la relación entre contenidos.
+
+                                </li>
+                                <li>
+                                    Requiere de un proceso de organización previo.
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <footer>
+                    <div class="doc-card__footer">
+                        <div class="outer-circle">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </div>
+    </main>
+    </body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</main>
+<footer>
+    <p>&copy; 2023 StudyMentor. Todos los derechos reservados.</p>
+    <div>
+        <img src="templates/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+    </div>
+</footer>
+<script>function Time() {
+
+    // Creating object of the Date class
+    var date = new Date();
+
+    // Get current hour
+    var hour = date.getHours();
+    // Get current minute
+    var minute = date.getMinutes();
+    // Get current second
+    var second = date.getSeconds();
+
+    // Variable to store AM / PM
+    var period = "";
+
+    // Assigning AM / PM according to the current hour
+    if (hour >= 12) {
+        period = "PM";
+    } else {
+        period = "AM";
+    }
+
+    // Converting the hour in 12-hour format
+    if (hour == 0) {
+        hour = 12;
+    } else {
+        if (hour > 12) {
+            hour = hour - 12;
+        }
+    }
+
+    // Updating hour, minute, and second
+    // if they are less than 10
+    hour = update(hour);
+    minute = update(minute);
+    second = update(second);
+
+    // Adding time elements to the div
+    document.getElementById("digital-clock").innerText = hour + " : " + minute + " : " + second + " " + period;
+
+    // Set Timer to 1 sec (1000 ms)
+    setTimeout(Time, 1000);
+}
+
+// Function to update time elements if they are less than 10
+// Append 0 before time elements if they are less than 10
+function update(t) {
+    if (t < 10) {
+        return "0" + t;
+    }
+    else {
+        return t;
+    }
+}
+
+Time();
+</script>
+</body>
+
+</html>
