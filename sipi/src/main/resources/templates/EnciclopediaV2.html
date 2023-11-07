@@ -56,6 +56,8 @@
             margin: 1em;
             width: 450px;
             overflow: hidden;
+            border: solid;
+            border-color: rgb(180, 180, 180);
         }
 
         .encyclopedia-item img {
@@ -161,8 +163,28 @@
         }
 
         .highlighted {
-            background-color: gold;
+            background-color: rgb(255, 255, 255);
+            border: 5px solid gold;
+            border-radius: 7px;
+            outline: none;
+            box-shadow: 0 0 10px gold;
+            animation: pulse 3.5s infinite;
         }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 20px gold;
+            }
+
+            50% {
+                box-shadow: 0 0 40px gold, 0 0 50px gold, 0 0 60px gold;
+            }
+
+            100% {
+                box-shadow: 0 0 20px gold;
+            }
+        }
+
         .abc-icon {
             font-size: 12px;
             font-weight: bold;
@@ -173,51 +195,53 @@
         }
 
         .border {
-            margin-top:40px;
-            margin-left:40px;
-            width:400px;
-            height:300px;
-            background-color:#1a1a1a;
-            overflow:hidden;
-            position:absolute;
+            margin-top: 40px;
+            margin-left: 40px;
+            width: 400px;
+            height: 300px;
+            background-color: #1a1a1a;
+            overflow: hidden;
+            position: absolute;
         }
 
         .inside {
-            margin-top:10px;
-            margin-left:10px;
-            display:inline-block;
-            width:380px;
-            height:280px;
-            background-color:#FBC638;
-            position:absolute;
-            left:0;
+            margin-top: 10px;
+            margin-left: 10px;
+            display: inline-block;
+            width: 380px;
+            height: 280px;
+            background-color: #FBC638;
+            position: absolute;
+            left: 0;
         }
 
-        .shine{
-            position:relative;
-            display:inline-block;
-            background-color:#fff;
-            width:150px;
-            height:300px;
-            opacity:0.2;
+        .shine {
+            position: relative;
+            display: inline-block;
+            background-color: #fff;
+            width: 150px;
+            height: 300px;
+            opacity: 0.2;
             transform: skewX(-40deg);
             animation: shine 12s infinite linear;
-            left:-100%;
+            left: -100%;
         }
 
-        @keyframes shine{
+        @keyframes shine {
             0% {
-                left:-100%;
-            }
-            12.5%{
-                left:60%;
-            }
-            25%{
-                left:180%;
+                left: -100%;
             }
 
-            100%{
-                left:140%;
+            12.5% {
+                left: 60%;
+            }
+
+            25% {
+                left: 180%;
+            }
+
+            100% {
+                left: 140%;
             }
 
         }
@@ -282,7 +306,8 @@
             <div class="encyclopedia-item-content">
                 <i class="fas fa-comment"></i>
                 <h3>Repetición Espaciada</h3>
-                <p>Técnica de aprendizaje memorístico basada en el entrenamiento de lectura espaciada de un contenido.</p>
+                <p>Técnica de aprendizaje memorístico basada en el entrenamiento de lectura espaciada de un contenido.
+                </p>
                 <a href="templates/DocsMetodos/RepeticionEspaciada.html">Leer más!</a>
             </div>
         </div>
@@ -291,7 +316,8 @@
             <div class="encyclopedia-item-content">
                 <i class="abc-icon">ABC</i>
                 <h3>Reglas Mnemotécnicas</h3>
-                <p>Técnica de estudio sobre la interpretación significativa de contenido para la facilidad de aprendizaje y sostenibilidad del contenido.</p>
+                <p>Técnica de estudio sobre la interpretación significativa de contenido para la facilidad de
+                    aprendizaje y sostenibilidad del contenido.</p>
                 <a href="templates/DocsMetodos/ReglasMnemotecnicas.html">Leer más!</a>
             </div>
         </div>
@@ -300,7 +326,8 @@
             <div class="encyclopedia-item-content">
                 <i class="fas fa-credit-card"></i>
                 <h3>Flash Cards</h3>
-                <p>Este método se basa en crear tarjetas para el estudio de conceptos generales en formato de Q/A (preguntas y respuetas)</p>
+                <p>Este método se basa en crear tarjetas para el estudio de conceptos generales en formato de Q/A
+                    (preguntas y respuetas)</p>
                 <a href="templates/DocsMetodos/FlashCard.html">Leer más!</a>
             </div>
         </div>
