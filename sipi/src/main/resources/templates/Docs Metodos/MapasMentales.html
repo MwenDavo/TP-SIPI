@@ -1040,7 +1040,9 @@
                             <div class="doc-card__header">
                                 <div class="doc-card__num"><span class="number-4"></span></div>
                                 <div class="doc-card__title">
-                                    <h2>Ventajas</h2>
+                                    <h2><span class="tags" style="background-color: #4caf50">
+                                        Ventajas
+                                    </span></h2>
                                 </div>
                             </div>
                         </header>
@@ -1091,7 +1093,9 @@
                             <div class="doc-card__header">
                                 <div class="doc-card__num"><span class="number-5"></span></div>
                                 <div class="doc-card__title">
-                                    <h2>Desventajas</h2>
+                                    <h2><span class="tags" style="background-color: #c20a0a">
+                                        Desventajas
+                                    </span></h2>
                                 </div>
                             </div>
                         </header>
@@ -1183,129 +1187,7 @@
 
                     </section>
                 </div>
-                <div class="doc-card">
-                    <section class="main-section " id="sec6">
 
-                        <header>
-
-                            <div class="doc-card__header">
-                                <div class="doc-card__num"><span class="number-6"></span></div>
-                                <div class="doc-card__title">
-                                    <h2>Beyond CSS Syntax</h2>
-                                </div>
-                            </div>
-                        </header>
-                        <div class="doc-card__content">
-                            <div class="doc-card__inner">
-                                <p class="doc-card__txt">
-                                    <span class="secondary-title">Make CSS readable</span>
-                                    As you can see, CSS syntax is not that hard to write: you write some rules and if
-                                    you write them wrong, they will just be
-                                    ignored. However, even if that works, there are some best practices worth knowing to
-                                    make your CSS code easier
-                                    to use and maintain.
-                                    <span class="secondary-title">White spaces</span>
-                                    In the same manner as HTML, the browser tends to ignore much of the whitespace
-                                    inside your CSS; a lot of the whitespace is
-                                    just there to aid readability.In our first example below we have each declaration
-                                    (and rule start/end) on its
-                                    own line — this is arguably a good way to write CSS, as it makes it easy to maintain
-                                    and understand:
-
-                                    <span class="doc-card__snippet"><code>
-              body { <br>
-               &nbsp; font: 1em/150% Helvetica, Arial, sans-serif; <br>
-               &nbsp; padding: 1em; <br>
-               &nbsp; margin: 0 auto; <br>
-               &nbsp; max-width: 33em; <br>
-              } <br> <br>
-              
-              @media (min-width: 70em) { <br>
-                &nbsp;  body { <br>
-                  &nbsp;   font-size: 130%; <br>
-                  &nbsp; } <br>
-              } <br>
-              <br> <br>
-              h1 { <br>
-                &nbsp; font-size: 1.5em; <br>
-              } <br> <br>
-              
-              div p, #id:first-line { <br>
-                &nbsp;  background-color: red; <br>
-                &nbsp;  background-style: none <br>
-              } <br>
-              <br>
-              div p { <br>
-                &nbsp;  margin: 0; <br>
-                &nbsp;  padding: 1em; <br>
-              } <br> <br>
-              
-              div p + p { <br>
-                &nbsp; padding-top: 0; <br>
-              } <br>
-          </code></span>
-                                    You could write exactly the same CSS like so, with most of the whitespace removed —
-                                    this is functionally identical to the
-                                    first example, but I'm sure you'll agree that it is somewhat harder to read:
-                                    <span class="doc-card__snippet"><code>
-              body {font: 1em/150% Helvetica, Arial, sans-serif; padding: 1em; margin: 0 auto; max-width: 33em;} <br>
-              @media (min-width: 70em) { body {font-size: 130%;} } <br> <br>
-              
-              h1 {font-size: 1.5em;} <br> <br>
-              div p, #id:first-line {background-color: red; background-style: none} <br>
-              div p {margin: 0; padding: 1em;} <br>
-              div p + p {padding-top: 0;}
-          </code></span>
-                                    The code layout you choose is usually a personal preference, although when you start
-                                    to work in teams, you may find that
-                                    the existing team has its own styleguide that specifies an agreed convention to
-                                    follow. <br><br> The
-                                    whitespace you do need to be careful of in CSS is the whitespace around the
-                                    properties and their values. For
-                                    example, the following is valid CSS:
-                                    <span class="doc-card__snippet"><code>
-                            margin: 0 auto; <br>
-                            padding-left: 10px;
-                        </code></span>
-                                    But the following is invalid:
-                                    <span class="doc-card__snippet"><code>
-                            margin: 0auto; <br>
-                            padding- left: 10px;
-                        </code></span>
-                                    Because <span class="tags">0auto </span> is not recognised as a valid value for the
-                                    margin property (<span class="tags">0</span> and <span class="tags">auto</span> are
-                                    two separate values,) and the browser does not
-                                    recognise <span class="tags"> padding-</span> as a valid property. So you should
-                                    always make sure to separate
-                                    distinct values from one another by at least a space, but keep property names/values
-                                    together as one unbroken
-                                    string.
-                                    <span class="secondary-title">Comments</span>
-                                    As with HTML, you are encouraged to make comments in your CSS, to help you
-                                    understand how your code works when coming back
-                                    to it after several months, and to help others understand it. Comments are also
-                                    useful for temporarily commenting
-                                    out certain parts of the code for testing purposes, for example if you are trying to
-                                    find which part of your
-                                    code is causing an error. <br> <br> Comments in CSS begin with <span
-                                        class="tags">/*</span> and
-                                    end with <span class="tags">*/</span> .
-
-
-
-                                </p>
-                            </div>
-                        </div>
-                        <footer>
-                            <div class="doc-card__footer">
-                                <div class="outer-circle">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </footer>
-
-                    </section>
-                </div>
             </main>
         </body>
         <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
