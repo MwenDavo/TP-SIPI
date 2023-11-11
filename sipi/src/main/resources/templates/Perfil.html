@@ -127,6 +127,12 @@
             .cta {
                 font-size: 30px;
             }
+
+            body {
+                overflow-x: hidden;
+                /* Ocultar desplazamiento horizontal */
+                overflow-y: hidden;
+            }
         }
 
         @media screen and (max-width: 2047px) {
@@ -354,9 +360,69 @@
         }
 
         main section {
-            width: 800px;
             display: flex;
-            margin-left: 600px;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .app-settings-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .app-settings-section {
+            margin-bottom: 24px;
+        }
+
+        .app-settings-section h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .app-settings-item {
+            margin-bottom: 16px;
+        }
+
+        .app-settings-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .app-settings-item select,
+        .app-settings-item button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .app-settings-item button {
+            background-color: #f44336;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .app-settings-item button:hover {
+            background-color: #d32f2f;
         }
     </style>
 </head>
@@ -364,8 +430,8 @@
 <body>
     <header>
         <div class="headerTop">
-            <a href="../static/front/Main.html"><img src="../static/front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
-                                                     height="53,75px"></a>
+            <a href="./Main.html"><img src="../static/front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px"
+                    height="53,75px"></a>
             <div id="digital-clock"></div>
         </div>
         <h1>¡Bienvenido a StudyMentor!</h1>
@@ -399,7 +465,7 @@
             </li>
             <li>
                 <div class="wrapper">
-                    <a class="cta" href="Enciclopedia.html">
+                    <a class="cta" href="EnciclopediaV2.html">
                         <span><i class="fas fa-book section-icon"></i>
                             <div>Enciclopedia</div>
                         </span>
@@ -424,9 +490,10 @@
             </li>
             <li>
                 <div class="wrapper">
-                    <a class="cta" href="EnConstruccion.html">
-                        <span><i class=" fas fa-bell section-icon"></i>
-                            <div>Notificaciones</div>
+                    <a class="cta" href="AsistenteVirtual.html">
+                        <span><i class=" fas fa-robot section-icon"></i>
+                            <div>Asistente Virtual<div class="notification notify"></div>
+                            </div>
                         </span>
                         <span>
                             <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
@@ -480,63 +547,39 @@
         </div>
     </nav>
     </div>
-    <section style="padding-left: 40px; width: 400px;">
-        <h1><i class="fas fa-cog"></i> Opciones de Perfil</h1>
-        <h2>Seleccionar Opción</h2>
-        <select id="opciones" onchange="mostrarFormulario()">
-            <option value="contrasena">Contraseña</option>
-            <option value="telefono">Número de Teléfono</option>
-            <option value="email">Correo Electrónico</option>
-        </select>
-    </section>
     <main>
-        <section id="formContrasena" style="display: none;">
-            <h1>Cambiar Contraseña</h1>
-            <label for="password">Nueva Contraseña:</label>
-            <input type="password" id="password" name="password" placeholder="Nueva contraseña">
-            <button onclick="guardarCambios('contrasena')">Guardar Cambios</button>
-        </section>
+        <section>
+            <div class="app-settings-container">
+                <h1><i class="fas fa-user section-icon fa-sm"></i>Perfil</h1>
+                <div class="app-settings-section">
+                    <h2>Nombre de Usuario:</h2>
+                    <h2 id="nombreUsuario" style="border-style: solid;border-color: #333; border-radius: 10px;"></h2>
+                    <h2>Mail de Usuario:</h2>
+                    <h2 id="correoElectronico"
+                        style="border-style: solid;border-color: #333; border-radius: 10px; padding: 10px;">
+                    </h2>
 
-        <section id="formTelefono" style="display: none;">
-            <h1>Cambiar Número de Teléfono</h1>
-            <label for="phone">Nuevo Número de Teléfono:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Nuevo número de teléfono">
-            <button onclick="guardarCambios('telefono')">Guardar Cambios</button>
-        </section>
+                </div>
 
-        <section id="formEmail" style="display: none;">
-            <h1>Cambiar Correo Electrónico</h1>
-            <label for="email">Nuevo Correo Electrónico:</label>
-            <input type="email" id="email" name="email" placeholder="Nuevo correo electrónico">
-            <button onclick="guardarCambios('email')">Guardar Cambios</button>
+
+                <div class="app-settings-section">
+                    <h2>Privacidad</h2>
+                    <div class="app-settings-item">
+
+                        <label for="delete-account"><i class="fas fa-trash-alt"></i> Eliminar Cuenta:</label>
+                        <button id="delete-account" style="background-color: red;">Eliminar mi cuenta</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2023 StudyMentor. Todos los derechos reservados.</p>
         <div>
             <img src="../static/front/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
         </div>
     </footer>
-    <script>
-        function mostrarFormulario() {
-            const opciones = document.getElementById('opciones');
-            const formContrasena = document.getElementById('formContrasena');
-            const formTelefono = document.getElementById('formTelefono');
-            const formEmail = document.getElementById('formEmail');
-
-            formContrasena.style.display = 'none';
-            formTelefono.style.display = 'none';
-            formEmail.style.display = 'none';
-
-            if (opciones.value === 'contrasena') {
-                formContrasena.style.display = 'block';
-            } else if (opciones.value === 'telefono') {
-                formTelefono.style.display = 'block';
-            } else if (opciones.value === 'email') {
-                formEmail.style.display = 'block';
-            }
-        }
-    </script>
     <script>function Time() {
 
             // Creating object of the Date class
@@ -594,7 +637,14 @@
 
         Time();
     </script>
-    <script src="funciones/checkToken.js"/>
+    <script src="funciones/checkToken.js"></script>
+    <script>
+        var nombreUsuario = localStorage.getItem('nombreUsuario');
+        var mailUsuario = localStorage.getItem('correoElectronico');
+
+        document.getElementById('nombreUsuario').textContent = nombreUsuario;
+        document.getElementById('correoElectronico').textContent = mailUsuario;
+    </script>
 </body>
 
 </html>
