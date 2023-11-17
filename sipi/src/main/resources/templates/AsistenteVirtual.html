@@ -181,12 +181,14 @@
         </select>
 
         <button onclick="enviarRequest()" id="boton-envio">Enviar Consulta</button>
-        <label for="ai-output">Respuesta:</label>
+        <label for="ai-output" id="ai-output-label">Respuesta:</label>
         <textarea id="ai-output" rows="20" cols="150"></textarea>
         </div>
     </main>
 </body>
 <script>
+    document.getElementById('ai-output-label').style.display = 'none';
+    document.getElementById('ai-output').style.display = 'none';
     function enviarRequest() {
         var opcionSeleccionada = document.getElementById('ai-option');
         var skills = opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value;
@@ -249,6 +251,8 @@
                 document.getElementById("ai-option").style.display = "none";
                 document.getElementById("ai-option-label").style.display = "none";
                 document.getElementById("boton-envio").style.display = "none";
+                document.getElementById('ai-output-label').style.display = 'block';
+                document.getElementById('ai-output').style.display = 'block';
             })
             .catch((error) => {
                 console.log(error);
