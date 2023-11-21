@@ -264,6 +264,18 @@
             width: 700px;
         }
 
+        a {
+            color: red;
+        }
+
+        a:hover {
+            background-color: yellow;
+        }
+
+        a {
+            text-decoration: aliceblue;
+        }
+
 
         nav #options .section-icon {
             transition: transform 0.2s ease;
@@ -602,7 +614,7 @@
             </li>
             <li>
                 <div class="wrapper">
-                    <a class="cta" href="front/Enciclopedia.html">
+                    <a class="cta" href="EnciclopediaV2.html">
                         <span><i class="fas fa-book section-icon"></i>
                             <div>Enciclopedia</div>
                         </span>
@@ -627,9 +639,9 @@
             </li>
             <li>
                 <div class="wrapper">
-                    <a class="cta" href="EnConstruccion.html">
-                        <span><i class=" fas fa-bell section-icon"></i>
-                            <div>Notificaciones</div>
+                    <a class="cta" href="AsistenteVirtual.html">
+                        <span><i class=" fas fa-robot section-icon"></i>
+                            <div>Asistente Virtual</div>
                         </span>
                         <span>
                             <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
@@ -690,7 +702,7 @@
             <nav id="navbar" class="main-nav">
                 <header class="main-header">
                     <div>
-                        <h1>Docs Mapas Mentales</h1>
+                        <h1>Documentacion Cornell</h1>
                     </div>
                     <div class="star-wrapper"><span class="star">
                             <div class="star-circle">
@@ -701,12 +713,12 @@
 
                 </header>
                 <ol class="nav-links">
-                    <li><a href="#sec1" class="nav-link">¿Que son las Flashcards?</a></li>
-                    <li><a href="#sec2" class="nav-link">¿Como se crean?</a></li>
-                    <li><a href="#sec3" class="nav-link">Utilizacion</a></li>
+                    <li><a href="#sec1" class="nav-link">¿Que es el Metodo Cornell?</a></li>
+                    <li><a href="#sec2" class="nav-link">¿Como aplicarlo para el estudio?</a></li>
+                    <li><a href="#sec3" class="nav-link">Regla de las seis "R"</a></li>
                     <li><a href="#sec4" class="nav-link">Ventajas</a></li>
                     <li><a href="#sec5" class="nav-link">Desventajas</a></li>
-                    <li><a href="#sec6" class="nav-link">PAGINAS DE AYUDA</a></li>
+
                 </ol>
             </nav>
             <main id="main-doc">
@@ -719,30 +731,39 @@
                             <div class="doc-card__header">
                                 <div class="doc-card__num"><span class="number-1"> </span></div>
                                 <div class="doc-card__title">
-                                    <h2>¿Que son las Flashcards?</h2>
+                                    <h2>¿Que es el Metodo Cornell?</h2>
                                 </div>
                             </div>
                         </header>
                         <div class="doc-card__content">
                             <div class="doc-card__inner">
                                 <p class="doc-card__txt">
-                                    Las flashcards son unas tarjetas hechas específicamente para estudiar, en las que
-                                    por una cara se coloca el concepto o pregunta a estudiar y por la otra cara se
-                                    coloca la respuesta o el desarrollo.<br>
-                                    Estas fichas de estudio servirán para sintetizar los conceptos más importantes que
-                                    haya que estudiar: definiciones, ejemplos, formulas, datos, fechas clave, normativa,
-                                    etc. De esta forma, se podrá detectar y sintetizar la informacion más importante,
-                                    para memorizarla y llevar a cabo repasos rápidos.<br>
-                                    Estas tarjetas de estudio, al combinar textos con otros elementos visuales, facilita
-                                    la retención de informacion y hace que seamos más productivos a la hora de estudiar.
-                                    Para la utilización de las flashcards se recomienda utilizar únicamente las propias,
-                                    ya que incluso si se quieren estudiar los mismos conceptos, dos personas terminarían
-                                    con flashcards completamente distintas unas de otras debido al trabajo previo a la
-                                    realización de estas. Este trabajo implica resumir el contenido, seleccionar los
-                                    colores, tipografía y diseños que se ajusten mejor a las preferencias del estudiante
-                                    que las realizo. Además, que durante el tiempo que se dedique al preparado de las
-                                    flashcards, se estará estudiando la información de forma pasiva.
-                                </p>
+                                    Este método se basa en dividir una misma hoja de apuntes (idealmente de tamaño A4)
+                                    en cuatro apartados diferenciados para poder condensar todo el temario y estudiar de
+                                    forma productiva.
+                                    <br>
+
+                                    Estructura de la hoja de apuntes:
+                                    <br>
+                                    La plantilla del método Cornell tiene una estructura fija que permite organizar y
+                                    jerarquizar todo el contenido relevante a nivel visual. Los apartados de la hoja de
+                                    apuntes son el título, las ideas y conceptos claves, las notas de clase o notas
+                                    sobre la informacion principal y el resumen o síntesis final.
+                                    <br>
+                                    <ol style= text-align:left>
+                                    <li>Título: en la parte superior de la plantilla se anota el nombre del tema
+                                        objetivo de estudio y la fecha.</li>
+                                    <li>Columna izquierda: ocupa la mitad que la columna derecha, alrededor de 6.5 cm,
+                                        y en ella se apuntarán las ideas y conceptos clave, asi como las dudas
+                                        pendientes que pueda haber.</li>
+                                    <li>Columna derecha: el espacio más grande de la plantilla de apuntes, 15 cm, está
+                                        destinado a las notas sobre la informacion más relevante, es decir, conceptos
+                                        desarrollados, ejemplos, frases importantes, esquemas o incluso reglas
+                                        mnemotécnicas.</li>
+                                    <li>Pie de página: este apartado se denomina resumen y comprende los puntos
+                                        relevantes del tema que se han desgranado en las secciones superiores en forma
+                                        de síntesis.</li>
+                                    </ol>
                             </div>
                         </div>
                         <footer>
@@ -765,33 +786,20 @@
                             <div class="doc-card__header">
                                 <div class="doc-card__num"><span class="number-2"></span></div>
                                 <div class="doc-card__title">
-                                    <h2>Consejos para la creacion de Flashcards</h2>
+                                    <h2>¿Como aplicarlo para el estudio?</h2>
                                 </div>
                             </div>
                         </header>
                         <div class="doc-card__content">
                             <div class="doc-card__inner">
                                 <p class="doc-card__txt">
-                                    <br>
-                                <ol>
-                                    <li>
-                                        Utilizar dibujos relacionados con los conceptos que se desean estudiar: Los
-                                        dibujos son una muy buena manera de mantener despierto el cerebro. Ver dibujos
-                                        hará que la mente se mantenga atenta y preparada para recibir estímulos.</li>
-                                    <li> Utilizar reglas mnemotécnicas en tus flashcards. (Podes leer más sobre reglas
-                                        mnemotécnicas aquí.)</li><!--AGREGAR LINK A REGLAS MNEMOTECNICAS-->
-                                    <li>• Usar solo una ficha de estudio por concepto o cuestión: No se aconseja llenar
-                                        de datos una sola ficha. Lo ideal es descomponer el tema que se debe estudiar y
-                                        cada concepto o dato se desarrolle en una sola tarjeta. Para asegurarse de que
-                                        uno realmente recuerde todo, se debe escribir una cuestión por ficha.</li>
-                                    <li>Utilizar líneas para unir los conceptos y asi establecer la relación entre el
-                                        foco temático y el resto de las ideas desarrolladas.</li>
-                                    <li>• Utilizar colores y tipografías diferentes. Se aconseja cambiar los tipos de
-                                        letra y subrayar con colores distintos, etc. Y asi sacar a las fichas de la
-                                        monotonía. Esto hace que el cerebro esté en guardia. No importa si se utilizan
-                                        colores fuertes o suaves, mayúsculas o minúsculas. Lo importante es que haya
-                                        variedad, que no sigan un patrón.</li>
-                                </ol>
+                                    Emplear un folio tamaño A4 como base de la plantilla, numerarlo y añadir la fecha
+                                    para realizar una correcta clasificación del temario.<br>
+                                    Recopilar todas las notas, datos e información de vital importancia sobre el tema
+                                    para poder resumirlo en las columnas pertinentes de forma organizada.<br>
+                                    Para aprovechar todo el espacio disponible es recomendable crear y emplear un
+                                    sistema de abreviaturas o lenguaje propio para que la plantilla no sea un caos
+                                    informativo y visual.
                                 </p>
                             </div>
                         </div>
@@ -816,21 +824,30 @@
                             <div class="doc-card__header">
                                 <div class="doc-card__num"><span class="number-3"></span></div>
                                 <div class="doc-card__title">
-                                    <h2>Recomendaciones para su aplicacion</h2>
+                                    <h2>Regla de las seis "R"</h2>
                                 </div>
                             </div>
                         </header>
                         <div class="doc-card__content">
                             <div class="doc-card__inner">
                                 <p class="doc-card__txt">
-                                    Uno de los trucos que ayudaran a memorizar la informacion de las flashcards es
-                                    leerla en voz alta. Hacerse la pregunta y responderla en voz alta.<br>
-                                    Se debe utilizar las tarjetas para autoevaluarse, como si se estuviera en un examen
-                                    oral. Hay que preguntar y responder, explicándolo como si se estuviera dando una
-                                    clase, con palabras propias. Al hacer esto, uno se dará cuenta de que informacion se
-                                    logró memorizar y en cual hay que estudiar aún más.
-
-                                </p>
+                                    Para garantizar la correcta ejecución de este procedimiento de estudio y su
+                                    efectividad es seguir la regla de las seis R, la cual consiste en:<br>
+                                <ol style= text-align:left>
+                                    <li>REGISTRAR todos los datos importantes e ideas significativas.</li>
+                                    <li>RESUMIR y sintetizar toda la informacion para diferenciar ideas principales de
+                                        secundarias.</li>
+                                    <li>RECITAR en voz alta la plantilla para fijar los conceptos esenciales.</li>
+                                    <li>REFLEXIONAR y analizar toda la informacion para evitar solamente memorizarla sin
+                                        comprenderla.</li>
+                                    <li>REVISAR los apuntes y anotaciones de forma periódica para afianzar la
+                                        informacion relevante en la mente.</li>
+                                    <li>RECAPITULAR la informacion de la plantilla para establecer jerarquías entre los
+                                        conceptos y asociaciones que ayuden afianzar las ideas clave del tema.</li>
+                                </ol><br>
+                                Por lo tanto, el método Cornell permite establecer un mapa de informacion visual y
+                                conceptual fundamental para comprender el contenido de cada tema y garantiza su
+                                entendimiento en un corto periodo de tiempo.
                             </div>
                         </div>
                         <footer>
@@ -861,21 +878,25 @@
                         <div class="doc-card__content">
                             <div class="doc-card__inner">
                                 <p class="doc-card__txt">
-                                    <br>
-                                <ul>
+                                    El Método Cornell ofrece una serie de ventajas que pueden potenciar
+                                    significativamente tu experiencia de toma de apuntes y estudio:<br>
+                                <ul style= text-align:left>
                                     <li>
-                                        Permite estudiar en cualquier lugar gracias a que las flashcards son pequeñas y
-                                        fáciles de transportar.</li>
-                                    <li>Son versátiles en su formato, pueden ser digitales o físicas.
+                                        Escucha Activa y Estructuración: La metodología fomenta la escucha activa
+                                        durante las clases, ya que implica tomar apuntes de manera selectiva y
+                                        consciente. Además, al estructurar y jerarquizar las notas en la plantilla
+                                        específica del Método Cornell, se promueve una comprensión más profunda de los
+                                        contenidos.</li>
+                                    <li>Retención de Conceptos Fundamentales: Al basarse en el acto de tomar notas, el
+                                        Método Cornell se convierte en una herramienta efectiva para retener los
+                                        conceptos fundamentales. La acción de anotar activa diferentes áreas del
+                                        cerebro, lo que puede contribuir a una mejor retención de la información.
                                     </li>
-                                    <li>Permiten hacer que el estudio sea más ameno ya que no toma demasiado tiempo
-                                        leer las flashcards.</li>
-                                    <li>Implica tus facultades metacognitivas, que facilita retener los recuerdos más
-                                        profundamente.</li>
-                                    <li>Puedes utilizarlas tanto al acabar de estudiar un tema o como repaso diario.
-                                    </li>
+                                    <li>Organización Eficiente: El método incentiva la organización y jerarquización
+                                        eficiente de los apuntes. La división clara entre la sección de preguntas clave,
+                                        resúmenes y detalles facilita la revisión posterior, permitiendo un acceso
+                                        rápido a la información esencial.</li>
                                 </ul>
-                                </p>
                             </div>
                         </div>
                         <footer>
@@ -896,18 +917,33 @@
                                 <div class="doc-card__title">
                                     <h2><span class="tags" style="background-color: #c20a0a">
                                         Desventajas
-                                    </span></h2>
+                                    </span> </h2>
                                 </div>
                             </div>
                         </header>
                         <div class="doc-card__content">
                             <div class="doc-card__inner">
                                 <p class="doc-card__txt">
-                                    Lo unico negativo para resaltar acerca de las Flashcards es que estas requieren de
-                                    un generoso trabajo previo para crearlas antes de usarlas. Además, estas no
-                                    reemplazan el estudio y practica diario que debe llevarse a cabo para seguir
-                                    aprendiendo. Deben ser usadas para apoyar y complementar, pero no sustituir
-                                </p>
+                                    A pesar de sus beneficios, el Método Cornell también presenta ciertas desventajas
+                                    que es importante tener en cuenta:
+                                <ul style= text-align:left>
+                                    <li>Trabajo Adicional en la Elaboración de Plantillas: Implementar el Método Cornell
+                                        implica un esfuerzo adicional, ya que se requiere la creación de nuevas
+                                        plantillas y la elaboración de resúmenes para completar la hoja de apuntes. Esto
+                                        puede resultar un desafío, especialmente en situaciones de tiempo limitado.</li>
+                                    <li>Prueba de Síntesis: La metodología pone a prueba la capacidad de síntesis del
+                                        estudiante. La necesidad de condensar la información en secciones específicas
+                                        puede resultar desafiante y requerir habilidades avanzadas de resumen.</li>
+                                    <li>Exigencia de Concentración Sostenida: Para aprovechar al máximo el Método
+                                        Cornell, se necesita un nivel constante de concentración. Mantener un enfoque
+                                        elevado durante largos períodos puede ser difícil para algunas personas, lo que
+                                        puede afectar la eficacia del método en ciertos contextos.</li>
+                                </ul><br>
+                                En resumen, aunque el Método Cornell ofrece beneficios significativos en términos de
+                                organización y retención de información, su aplicación exitosa requiere un compromiso
+                                adicional y habilidades específicas por parte del estudiante.
+
+
                             </div>
                         </div>
                         <footer>
@@ -918,43 +954,6 @@
                             </div>
                         </footer>
 
-                        <div class="doc-card">
-                            <section class="main-section " id="sec6">
-
-                                <header>
-
-                                    <div class="doc-card__header">
-                                        <div class="doc-card__num"><span class="number-6"></span></div>
-                                        <div class="doc-card__title">
-                                            <h2>PAGINAS DE AYUDA</h2>
-                                        </div>
-                                    </div>
-                                </header>
-                                <div class="doc-card__content">
-                                    <div class="doc-card__inner">
-                                        <p class="doc-card__txt">
-                                            <ul style= text-align:left>
-                                        <il>
-                                            Pagina utilizada principalmente para crear Flash Cards: <a href="https://www.memorizar.com/ ">Click here</a>
-                                        </il>
-                                        <il>
-                                            Pagina generalizada para la creación de muchas ayudas al estudio: <a href="https://www.goconqr.com/es">Click here</a>
-                                        </il>
-                                    </ul>
-
-                                        </p>
-                                    </div>
-                                </div>
-                                <footer>
-                                    <div class="doc-card__footer">
-                                        <div class="outer-circle">
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                </footer>
-
-                            </section>
-                        </div>
                     </section>
                 </div>
 
@@ -965,7 +964,7 @@
     <footer>
         <p>&copy; 2023 StudyMentor. Todos los derechos reservados.</p>
         <div>
-            <img src="templates/Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
+            <img src="Fotos/SIP_Logo.png" alt="StudyMentor Logo" width="69,625px" height="53,75px">
         </div>
     </footer>
     <script>function Time() {
@@ -991,7 +990,7 @@
             }
 
             // Converting the hour in 12-hour format
-            if (hour == 0) {
+            if (hour === 0) {
                 hour = 12;
             } else {
                 if (hour > 12) {
